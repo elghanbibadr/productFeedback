@@ -4,7 +4,7 @@
 
 body{
   font-family:  'Jost' ,sans-serif;
-   background-color: white;
+   background-color: black;
 }
 
 /* ADD GENERAL STYLES */
@@ -24,12 +24,14 @@ body{
       @apply text-greyDark tracking-wider leading-5 text-[0.87rem] md:text-base
      }
 
+
+     /* FLEX */
     .flex-row-between {
       @apply flex flex-col justify-between items-center;
     }
     .flex-col-between {
       @apply flex flex-row justify-between items-center;
     }
-
+  
 
 }

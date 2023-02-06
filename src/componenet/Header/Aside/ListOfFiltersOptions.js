@@ -1,0 +1,1 @@
+export const listOfFiltersOptions = ['All', 'UI','UX','Feature','Enhancement','Bug']
