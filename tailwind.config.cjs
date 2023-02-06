@@ -14,6 +14,11 @@ module.exports = {
     //   '5xl': '3.052rem',
     // },
     extend: {
+      backgroundImage: {
+        'mobile-pattern': "url('./src/images/suggestions/mobile/background-header.png')",
+        'tablette-pattern': "url('./src/images/suggestions/tablet/background-header.png')",
+        'desktop-pattern': "url('./src/images/suggestions/desktop/background-header.png')",
+      },
       colors: {
         //       /* Primary */
         // --radial-gradient: radial-gradient(
@@ -22,7 +27,7 @@ module.exports = {
         //   #a337f6 53.09%,
         //   #28a7ed 100%
         // );
-        purple: '#ad1fe',
+        purple: '#ad1fe6',
         purpleHover: '#75af6',
         blue: '#4661e6',
         blueHover: '#7c91f9',

@@ -7,6 +7,8 @@ body{
    background-color: black;
 }
 
+
+
 /* ADD GENERAL STYLES */
 @layer components { 
     h1,h3,h4,h5,h6{
@@ -26,10 +28,10 @@ body{
 
 
      /* FLEX */
-    .flex-row-between {
+    .flex-col-between {
       @apply flex flex-col justify-between items-center;
     }
-    .flex-col-between {
+    .flex-row-between {
       @apply flex flex-row justify-between items-center;
     }
   
