@@ -11,8 +11,8 @@ const Header = () => {
     setAsideBarOpen(prv => !prv);
   }
   return (
-    <div className='md:flex-row-between  md:p-6 '>
-    <header className='p-3   bg-mobile-pattern bg-no-repeat bg-cover md:bg-tablette-pattern md:bg-contain md:p-6	md:rounded-xl' >
+    <div className='md:flex  md:p-6 '>
+    <header className='p-3   bg-mobile-pattern   bg-cover md:bg-tablette-pattern md:bg-contain  	md:rounded-xl' >
         <div className='flex-row-between'>
             <div>
                 <h2>Frontend Mentor</h2>
