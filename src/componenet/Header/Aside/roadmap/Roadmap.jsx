@@ -1,9 +1,9 @@
 import React from 'react'
-import Card from '../../utils/Card'
+import Card from '../../../utils/Card'
 import { RoadmapItems } from './RoadmapItems'
 const Roadmap = () => {
   return (
-    <Card className='w-1/2 mt-5' >
+    <Card className=' mt-5' >
      <div className='flex-row-between'>
         <h3>Roadmap</h3>
         <a className='text-blue text-sm cursor-pointer font-medium border-b border-b-blue hover:text-blueHover'>View</a>

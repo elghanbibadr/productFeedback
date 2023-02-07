@@ -46,6 +46,7 @@ module.exports = {
         grey: '#f2f4ff',
         grey75: 'hsl(231, 100%, 97%, 0.75)',
         greyLight: '#f7f8fd',
+        overlay:'#00000080'
       },
     },
   },
