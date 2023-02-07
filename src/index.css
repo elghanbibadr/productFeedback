@@ -11,7 +11,7 @@ body{
 
 /* ADD GENERAL STYLES */
 @layer components { 
-    h1,h3,h4,h5,h6{
+    h1,h3,h6{
          @apply text-greyDarkest font-bold
     } 
     h2{
@@ -21,8 +21,17 @@ body{
      h3{
       @apply text-[0.82rem] md:text-[1.12rem]
     } 
+    
+     h4{
+      @apply text-white font-bold  text-[0.81rem] md:text-[0.9rem]
+    } 
 
-     p{
+    h5{
+      @apply text-white font-bold  text-[0.76rem] md:text-[0.83rem]
+
+    }
+    
+     p,li{
       @apply text-greyDark tracking-wider leading-5 text-[0.87rem] md:text-base
      }
 
