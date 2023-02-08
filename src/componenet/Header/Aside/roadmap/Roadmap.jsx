@@ -3,7 +3,7 @@ import Card from '../../../utils/Card'
 import { RoadmapItems } from './RoadmapItems'
 const Roadmap = () => {
   return (
-    <Card className='md:w-1/3' >
+    <Card className='md:w-1/3 lg:w-full' >
      <div className='flex-row-between'>
         <h3>Roadmap</h3>
         <a className='text-blue text-sm cursor-pointer font-medium border-b border-b-blue hover:text-blueHover'>View</a>

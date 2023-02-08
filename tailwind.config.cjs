@@ -4,15 +4,9 @@ module.exports = {
   "./src/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
-    // fontSize: {
-    //   sm: '0.8rem',
-    //   base: '1rem',
-    //   xl: '1.25rem',
-    //   '2xl': '1.563rem',
-    //   '3xl': '1.953rem',
-    //   '4xl': '2.441rem',
-    //   '5xl': '3.052rem',
-    // },
+    container: {
+      center: true,
+    },
     extend: {
       backgroundImage: {
         'mobile-pattern': "url('./src/images/suggestions/mobile/background-header.png')",
@@ -28,7 +22,7 @@ module.exports = {
         //   #28a7ed 100%
         // );
         purple: '#ad1fe6',
-        purpleHover: '#75af6',
+        purpleHover: '#75af61',
         blue: '#4661e6',
         blueHover: '#7c91f9',
         blueLight: '#62bcfa',
