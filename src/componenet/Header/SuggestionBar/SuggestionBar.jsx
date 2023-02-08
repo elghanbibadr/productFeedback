@@ -4,7 +4,7 @@ const SuggestionBar = () => {
   return (
     <div className='bg-greyDarkest p-4'>
         <h4>0 Suggestions</h4>
-          <Dropdown options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
+          <Dropdown defaultOption='Most Upvotes' options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
     </div>
   )
 }

@@ -55,6 +55,6 @@ body{
 
 .checkIcon::after{
   content: url(/src/images/shared/icon-check.svg);
-  position: relative;
-  left: 10px;
+  position: absolute;
+  left: 80%;
 }
