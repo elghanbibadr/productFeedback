@@ -2,7 +2,7 @@ import { useState } from "react";
  const SuggestionTypeIcon = (props) => {
     const [isActive,setIsActive] =useState(false)
 
-    const handleClick=(e) => {
+    const handleClick=() => {
         if (!props.isHover) return;
         // that mean that the current icon belongs to the comment card
         setIsActive(!isActive)
