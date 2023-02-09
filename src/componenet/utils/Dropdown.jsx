@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 const Dropdown = (props) => {
     const [selectedOption,setSelectedOption] = useState(props.defaultOption)
-    const [dropDownExpanded,setDropDownExpanded] = useState(true)
+    const [dropDownExpanded,setDropDownExpanded] = useState(false)
     const [selectedOptionId,setSelectedOptionId] = useState(0)
     const handleDropDownSelected=()=>{
         setDropDownExpanded(prv => !prv)
