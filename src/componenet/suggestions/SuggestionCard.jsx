@@ -14,7 +14,10 @@ const SuggestionCard = () => {
           </div>
         </div>
               <UpVoteIcon className='md:col-start-1 md:row-start-1  '  text='99'/>
-              <img className='justify-self-end self-center ' src={commentLogo} alt='comment logo' />
+              <div className='flex items-center justify-self-end self-center '>
+                <img  src={commentLogo} alt='comment logo' />
+                <h3 className='mx-2'>2</h3>
+              </div>
     </Card>
   )
 }
