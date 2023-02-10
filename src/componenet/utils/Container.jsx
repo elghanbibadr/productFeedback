@@ -2,7 +2,7 @@ import React from 'react'
 
 const Container = (props) => {
   return (
-    <div className="md:container lg:grid grid-cols-3  lg:pt-20 ">
+    <div className="md:container   lg:pt-20 lg:px-60 ">
         {props.children}
     </div>
   )

@@ -12,7 +12,9 @@ export const AppContextProvider=({children})=>{
    const [isUserSelectedAfeature,setIsUserSelectedAFeature]=useState(false)
     const value={
        productRequests,
-       setProductRequests
+       setProductRequests,
+       isUserSelectedAfeature,
+       setIsUserSelectedAFeature
     }
 
     return <AppContext.Provider value={value} >{children}</AppContext.Provider>
