@@ -45,7 +45,7 @@ body{
     }
   
    .input{
-    @apply bg-greyLight text-greyDarker  rounded-md px-2 py-4 outline-none  w-full focus:border-2 border-blueHover;
+    @apply bg-greyLight text-greyDarker text-sm  rounded-md px-2 py-4 outline-none  w-full focus:border-2 border-blueHover;
    }
 
 

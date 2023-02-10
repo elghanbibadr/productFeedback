@@ -15,7 +15,7 @@ const SuggestionBar = () => {
                 <Dropdown defaultOption='Most Upvotes' options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
              </div>
         </div>
-            <Btn className='bg-purple whitespace-nowrap w-fit   hover:bg-purpleHover' text='+Add feedback' />
+            <Btn className='bg-purple whitespace-nowrap w-fit  transition-colors duration-300  hover:bg-purpleHover' text='+Add feedback' />
     </div>
   )
 }

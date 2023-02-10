@@ -22,7 +22,7 @@ module.exports = {
         //   #28a7ed 100%
         // );
         purple: '#ad1fe6',
-        purpleHover: '#75af61',
+        purpleHover: '#c75af6',
         blue: '#4661e6',
         blueHover: '#7c91f9',
         blueLight: '#62bcfa',

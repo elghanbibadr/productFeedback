@@ -2,7 +2,7 @@ import React from 'react'
 
 const TextAreaInput = (props) => {
   return (
-    <input className='input' placeholder={'hi there'}/>
+    <textarea className={ `${props.className} input resize-none`} placeholder={props.placeholder}/>
   )
 }
 
