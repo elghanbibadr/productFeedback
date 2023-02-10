@@ -44,7 +44,9 @@ body{
       @apply flex flex-row justify-between items-center;
     }
   
-
+   .input{
+    @apply bg-greyLight text-greyDarker  rounded-md px-2 py-4 outline-none  w-full focus:border-2 border-blueHover;
+   }
 
 
 }

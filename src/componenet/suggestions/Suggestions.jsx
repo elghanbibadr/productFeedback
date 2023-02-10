@@ -4,7 +4,7 @@ import { ref,onValue } from "firebase/database";
 import startFireBase from '../../../firebaseconfig';
 import { AppContext } from '../store/AppContext';
 import LoadingSpinner from '../utils/LoadingSpinner';
-
+import TextAreaInput from '../utils/TextAreaInput';
 const Suggestions = () => {
   
   const {productRequests,setProductRequests}=useContext(AppContext) 
@@ -15,6 +15,7 @@ const Suggestions = () => {
      const db =startFireBase();
    onValue(ref(db, 'productRequests/' ),async (snapshot)=>  {
      let  data= await snapshot.val()
+     console.log(data)
      setProductRequests(data)
      setIsLoading(false)
     }
@@ -24,6 +25,7 @@ const Suggestions = () => {
 
   return (
     <div className='p-4'>
+      <TextAreaInput/>
       {!isLoading &&  productRequests.map(({id,description,title,upvotes})=>{
        return <SuggestionCard key={id} description={description} title={title} upvotes={upvotes} />
 
