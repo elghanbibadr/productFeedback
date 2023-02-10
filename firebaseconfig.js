@@ -20,7 +20,5 @@ const firebaseConfig = {
    return  getDatabase(app);
 
 }
-
-
-
 export default startFireBase;
+

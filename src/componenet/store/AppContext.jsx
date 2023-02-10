@@ -1,13 +1,15 @@
 
-import { createContext,useState } from "react";
-
+import { createContext,useState,useEffect } from "react";
 
 export const AppContext=createContext(null);
 
 
-export const AppContextProvider=({children})=>{
-   const [productRequests,setProductRequests]=useState()
+// import data from firebase
 
+
+export const AppContextProvider=({children})=>{
+   const [productRequests,setProductRequests]=useState(undefined)
+  
     const value={
        productRequests,
        setProductRequests
