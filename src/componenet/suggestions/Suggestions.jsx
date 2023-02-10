@@ -3,7 +3,7 @@ import SuggestionCard from './SuggestionCard'
 import { ref,onValue } from "firebase/database";
 import startFireBase from '../../../firebaseconfig';
 import { AppContext } from '../store/AppContext';
-
+import LoadingSpinner from '../utils/LoadingSpinner';
 
 const Suggestions = () => {
   
@@ -28,6 +28,7 @@ const Suggestions = () => {
        return <SuggestionCard key={id} description={description} title={title} upvotes={upvotes} />
 
       })}
+      {isLoading &&  <LoadingSpinner/>}
       </div>
   )
 }
