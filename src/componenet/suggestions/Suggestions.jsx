@@ -26,7 +26,7 @@ const Suggestions = () => {
   return (
     <div className='p-4'>
       {!isLoading &&  productRequests.map(({id,description,title,upvotes,comments})=>{
-        return <SuggestionCard  key={id}    commentsLength={comments ? comments.length : 0}        comments={comments} description={description} title={title} upvotes={upvotes} />
+        return <SuggestionCard id={id}  key={id}    commentsLength={comments ? comments.length : 0}        comments={comments} description={description} title={title} upvotes={upvotes} />
 
       })}
       {isLoading &&  <LoadingSpinner/>}
