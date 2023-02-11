@@ -6,17 +6,16 @@ import UpVoteIcon from '../utils/UpVoteIcon'
 import { AppContext } from '../store/AppContext'
 
 const SuggestionCard = (props) => {
-  const {setIsUserSelectedAFeature}=useContext(AppContext);
-  // const handleSuggestionCardSlected=(e)=>{
-  //   setIsUserSelectedAFeature(true)
-  //   console.log(e.currentTarget)
-  // }
+  const {setIsUserSelectedAFeature,setCurrentSuggestionId}=useContext(AppContext);
+   const handleSuggestionCardSlected=(target)=>{
+    console.log(target.id)
+     setIsUserSelectedAFeature(true)
+     setCurrentSuggestionId(target.id)
+   }
 
-  // const handleCardClicked=(event)=>{
-  //   console.log(event.currenTarget)
-  // }
+ 
   return (
-    <Card id={props.id}   className='p-6 mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1'>
+    <Card id={props.id}   onClick={handleSuggestionCardSlected}  className='p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' >
         <div  className='col-span-2 md:col-span-4  md:col-start-2 '>
           <h3>{props.title}</h3>
           <div>

@@ -4,7 +4,7 @@ import { Comments } from '../comments/Comments'
 import AddComment from '../comments/AddComment'
 const CommentPage = () => {
   return (
-    <div className='p-6'>
+    <div className='p-6 lg:px-60'>
     <CommentsHeader/>
     <Comments/>
     <AddComment/>

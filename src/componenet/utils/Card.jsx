@@ -1,8 +1,12 @@
 import React from 'react'
 const Card = (props) => {
-  const handleCardClicked=(event)=>console.log(event.currentTarget.id)
+  const handleCardClicked=(event)=>{
+     if (props.className.includes('suggestionCard')){
+      props.onClick(event.currentTarget)
+     }
+  }
   return (
-    <div onClick={handleCardClicked} className={`${props.className} bg-white p-4 rounded-md`}>{props.children}</div>
+    <div id={props.id} onClick={handleCardClicked} className={`${props.className} bg-white p-4 rounded-md`}>{props.children}</div>
   )
 }
 
