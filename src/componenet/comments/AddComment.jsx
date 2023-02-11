@@ -4,7 +4,7 @@ import TextAreaInput from '../utils/TextAreaInput'
 import Btn from '../utils/Btn'
 const AddComment = () => {
   return (
-    <Card>
+    <Card className='mt-6'>
         <h3>Add comment</h3>
         <TextAreaInput className='my-4'/>
         <div className='flex-row-between'>

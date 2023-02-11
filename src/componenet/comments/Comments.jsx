@@ -11,11 +11,10 @@ export const Comments = () => {
     const comments = currentSuggestion.comments;
 
 
-  console.log(comments)
 
   return (
     <Card>
-    <h1>comment section</h1>
+    <h3 className='text-base md:text-xl mb-6'>{comments && comments.length}  comment </h3>
      {comments &&  comments.map(({id,content,user})=>{
       return <SingleComment key={id} id={id} content={content} user={user} />
      })}
