@@ -13,7 +13,7 @@ const SuggestionCard = (props) => {
      setCurrentSuggestionId(target.id)
    }
 
- 
+  
   return (
     <Card id={props.id}   onClick={handleSuggestionCardSlected}  className='p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' >
         <div  className='col-span-2 md:col-span-4  md:col-start-2 '>

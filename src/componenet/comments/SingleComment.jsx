@@ -7,7 +7,7 @@ const SingleComment = (props) => {
          <img className='h-10 w-10 object-cover rounded-full mr-4 ' src={props.user.image} alt='person image' />
          <div>
             <h3 className='mb-0'>{props.user.name}</h3>
-            <p className='text-sm relative bottom-2'>@{props.user.username}</p>
+            <p className='text-sm relative bottom-1'>@{props.user.username}</p>
          </div>
         </div>
         <a className='text-blue text-sm md:text-base font-semibold cursor-pointer'>Reply</a>
