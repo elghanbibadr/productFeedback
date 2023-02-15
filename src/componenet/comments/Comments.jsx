@@ -8,16 +8,14 @@ export const Comments = () => {
   //  const [comment,setComment]=useState(undefined)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     const {id,title,description,upvotes}=currentSuggestion
-    console.log(currentSuggestion.comments)
     // setComment(currentSuggestion.comments)
     const comments = currentSuggestion.comments;
 
- console.log(currentSuggestion)
- console.log(comments.length)
+
 
   return (
     <>
-    <SuggestionCard  id={id} title={title} description={description} upvotes={upvotes} commentsLength={comments.length} />
+    <SuggestionCard  id={id} title={title} description={description} upvotes={upvotes} commentsLength={ comments &&  comments.length } />
     <Card>
       <h3 className='text-base md:text-xl mb-6'>{comments && comments.length}  comment </h3>
        {comments &&  comments.map(({id,content,user})=>{
