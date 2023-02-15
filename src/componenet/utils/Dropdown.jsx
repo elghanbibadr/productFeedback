@@ -10,6 +10,7 @@ const Dropdown = (props) => {
     const handleOptionSelected=(e)=>{
         setSelectedOptionId(e.target.id)
         setSelectedOption(e.target.textContent)
+        props.onSaveSelection(e.target.textContent)
     }
   return (
             <div className="custom-select cursor-pointer relative text-white dark:text-textLight w-[300px] ">

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Dropdown from '../../utils/Dropdown'
 import Btn from '../../utils/Btn'
 import suggestionIcon from "../../../images/suggestions/icon-suggestions.svg"
+import { AppContext } from '../../store/AppContext'
 const SuggestionBar = () => {
+ const {userSortByChoice,setUserSortByChoice}=useContext(AppContext)
+  const handleSelecteOption=(option)=>{
+    setUserSortByChoice(option)
+  }
   return (
     <div className='bg-greyDarkest relative md:rounded-xl whitespace-nowrap w-full pr-4 py-2 flex-row-between flex-nowrap '>
         <div className='flex items-center justify-around md:w-4/5'>
@@ -12,7 +17,7 @@ const SuggestionBar = () => {
           </div>
              <div className='flex items-center '>
                <span className='text-white text-xs'>sort by :</span>
-                <Dropdown defaultOption='Most Upvotes' options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
+                <Dropdown onSaveSelection={handleSelecteOption}    defaultOption='Most Upvotes' options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
              </div>
         </div>
             <Btn className='bg-purple whitespace-nowrap w-fit  transition-colors duration-300  hover:bg-purpleHover' text='+Add feedback' />
