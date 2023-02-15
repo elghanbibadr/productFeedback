@@ -53,6 +53,7 @@
             "name": "Elijah Moss",
             "username": "hexagon.bestagon"
           },
+          "comment": [],
           "replies": []
 
         },
@@ -185,6 +186,7 @@
       "title": "Preview images not loading",
       "category": "bug",
       "upvotes": 3,
+      "comments": [],
       "status": "suggestion",
       "description": "Challenge preview images are missing when you apply a filter."
     },
@@ -287,7 +289,8 @@
       "category": "bug",
       "upvotes": 9,
       "status": "in-progress",
-      "description": "Screenshots of solutions with animations don’t display correctly."
+      "comments": [],
+       "description": "Screenshots of solutions with animations don’t display correctly."
     },
     {
       "id": 12,
