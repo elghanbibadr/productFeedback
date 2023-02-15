@@ -2,17 +2,9 @@ import React from 'react'
 import Card from '../utils/Card'
 import TextAreaInput from '../utils/TextAreaInput'
 import Btn from '../utils/Btn'
-import startFireBase from '../../../firebaseconfig'
-import { getDatabase, ref,onValue, set } from "firebase/database";
+
 const AddComment = () => {
-   const db=startFireBase();
-   const referece=ref(db, 'productRequests/' + 1)
-   onValue(referece,(snapshot)=> {
-    const data=snapshot.val()
-    console.log(data)
- });   
-   
-  
+
   return (
     <Card className='mt-6'>
         <h3>Add comment</h3>

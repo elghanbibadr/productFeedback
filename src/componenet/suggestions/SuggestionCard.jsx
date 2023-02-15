@@ -20,10 +20,10 @@ const SuggestionCard = (props) => {
           <h3>{props.title}</h3>
           <div>
               <p className='my-4'>{props.description}</p>
-              <SuggestionTypeIcon   text='Feature'/>
+              <SuggestionTypeIcon   text={props.category}/>
           </div>
         </div>
-              <UpVoteIcon className='md:col-start-1 md:row-start-1  '  text={props.upvotes}/>
+               <UpVoteIcon className='md:col-start-1 md:row-start-1  ' text={props.upvotes}/> 
               <div className='flex items-center justify-self-end self-center '>
                 <img  src={commentLogo} alt='comment logo' />
                 <h3 className='mx-2'>{props.commentsLength}</h3>
