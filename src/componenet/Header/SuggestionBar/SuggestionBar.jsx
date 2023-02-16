@@ -4,7 +4,7 @@ import Btn from '../../utils/Btn'
 import suggestionIcon from "../../../images/suggestions/icon-suggestions.svg"
 import { AppContext } from '../../store/AppContext'
 const SuggestionBar = () => {
- const {userSortByChoice,setUserSortByChoice}=useContext(AppContext)
+ const {userSortByChoice,setUserSortByChoice,suggestionNumber}=useContext(AppContext)
   const handleSelecteOption=(option)=>{
     setUserSortByChoice(option)
   }
@@ -13,7 +13,7 @@ const SuggestionBar = () => {
         <div className='flex items-center justify-around md:w-4/5'>
           <div className='hidden md:flex items-center'>
             <img className='absolute left-4' src={suggestionIcon} alt='suggestion icon'/>
-            <h4 className='md:text-lg' >0 Suggestions</h4>
+            <h4 className='md:text-lg' >{suggestionNumber} Suggestions</h4>
           </div>
              <div className='flex items-center '>
                <span className='text-white text-xs'>sort by :</span>

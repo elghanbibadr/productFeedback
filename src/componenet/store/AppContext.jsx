@@ -6,10 +6,13 @@ export const AppContext=createContext(null);
 
 // import data from firebase
 export const AppContextProvider=({children})=>{
-   const [productRequests,setProductRequests]=useState(data[0].productRequests)
+    const [productRequests,setProductRequests]=useState(data[0].productRequests)
+    const suggestionsArray=productRequests.filter(element=>element.status=="suggestion")
    const [isUserSelectedAfeature,setIsUserSelectedAFeature]=useState(false)
    const [currentSuggestionId,setCurrentSuggestionId]=useState(undefined)
    const [userSortByChoice,setUserSortByChoice]=useState('Most Upvotes')
+     const [suggestions,setSuggestion]=useState(suggestionsArray)
+   const [suggestionNumber,setSuggestionNumber]=useState(suggestions.length)
    const value={
        productRequests,
        setProductRequests,
@@ -18,7 +21,12 @@ export const AppContextProvider=({children})=>{
        currentSuggestionId,
        setCurrentSuggestionId,
        userSortByChoice,
-       setUserSortByChoice
+       setUserSortByChoice,
+       suggestions,
+       setSuggestion,
+       suggestionNumber,
+       setSuggestionNumber,
+    
    }
 
     return <AppContext.Provider value={value} >{children}</AppContext.Provider>
