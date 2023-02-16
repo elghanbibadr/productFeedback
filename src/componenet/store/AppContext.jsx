@@ -12,7 +12,7 @@ export const AppContextProvider=({children})=>{
    const [currentSuggestionId,setCurrentSuggestionId]=useState(undefined)
    const [userSortByChoice,setUserSortByChoice]=useState('Most Upvotes')
      const [suggestions,setSuggestion]=useState(suggestionsArray)
-   const [filterSuggestionCategory,setFilterSuggestionCategory]=useState('all')  
+   const [filterSuggestionCategory,setFilterSuggestionCategory]=useState('All')  
    const [suggestionNumber,setSuggestionNumber]=useState(suggestions.length)
    const value={
        productRequests,
