@@ -6,7 +6,7 @@ const FilterSuggestionsList = () => {
   return (
     <Card className="  gap-2 grid grid-cols-3 md:w-1/2 lg:w-full lg:my-4 ">
        {listOfFiltersOptions.map((item,index)=>{
-       return <SuggestionTypeIcon id={index}  key={index} className={index===3 ? "col-span-3" :index===4 ? "col-span-2" :""} isHover={true} text={item} />
+       return <SuggestionTypeIcon dataType={item} id={index}  key={index} className={index===3 ? "col-span-3" :index===4 ? "col-span-2" :""} isHover={true} text={item} />
        })}
     </Card>
   )
