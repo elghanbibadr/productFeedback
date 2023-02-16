@@ -5,6 +5,7 @@ import Aside from './Aside/Aside'
 import Roadmap from './Aside/roadmap/Roadmap'
 import FilterSuggestionsList from './Aside/FilterSuggestionList/FilterSuggestionsList'
 import hamburgerMenu from "../../images/shared/mobile/icon-hamburger.svg"
+
 const Header = (props) => {
   const [asideBarOpen,setAsideBarOpen] =useState(false);
   const handleMenuHamburgerClicked=()=>{
