@@ -13,7 +13,7 @@ const Dropdown = (props) => {
         props.onSaveSelection(e.target.textContent)
     }
   return (
-            <div className="custom-select cursor-pointer relative text-white dark:text-textLight w-[300px] ">
+            <div className="custom-select cursor-pointer z-30 relative text-white dark:text-textLight w-[300px] ">
                 <div onClick={handleDropDownSelected}  className="flex items-center">
                     <h5 className="mr-4">{selectedOption} </h5>
                     <svg className={ `transition-transform	 ${dropDownExpanded ? "rotate-180" : "rotate-0"}` } width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
