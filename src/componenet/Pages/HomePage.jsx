@@ -11,6 +11,7 @@ const HomePage = () => {
     <Suggestions />
     </main>
     </div>
+     
   )
 }
 
