@@ -13,6 +13,9 @@ module.exports = {
         'tablette-pattern': "url('./src/images/suggestions/tablet/background-header.png')",
         'desktop-pattern': "url('./src/images/suggestions/desktop/background-header.png')",
       },
+      borderColor:{
+    'border-b-2':'0px'
+      },
       colors: {
         //       /* Primary */
         // --radial-gradient: radial-gradient(

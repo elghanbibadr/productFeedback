@@ -1,7 +1,7 @@
 import React , {useState} from  'react'
 import FeaturesName from './FeaturesName'
 const RoadMapFeatures = () => {
-    const FeaturesNameList=['Planned','In-Progress','Live']
+    const FeaturesNameList=[{name:'Planned',borderColor:"border-orange"},{name:'In-Progress',borderColor:"border-purple"},{name:'live',borderColor:"border-blueLight"}]
 
     const [selectedFeatureNameId,setSlectedFeatureNameId]=useState(0)
     const handleClick=(e) => {
@@ -11,9 +11,9 @@ const RoadMapFeatures = () => {
 
   return (
     <>
-    <div className='grid grid-cols-3 text-center  border-b-2 border-greyHover '>
-    {FeaturesNameList.map((featureName,index)=>{
-   return <h3  className={` ${(selectedFeatureNameId==index ) ? "border-red border-b-4 ": "border-none"} cursor-pointer 	   py-4`} onClick={handleClick} id={index}>{featureName}</h3>
+    <div className='grid grid-cols-3 text-center  border-b-[1px] border-greyHover '>
+    {FeaturesNameList.map(({name,borderColor},index)=>{
+   return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
    </div>
     </>
