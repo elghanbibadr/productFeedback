@@ -11,7 +11,7 @@ const RoadMapFeatures = () => {
 
   return (
     <>
-    <div className='grid grid-cols-3 text-center  border-b-[1px] border-greyHover '>
+    <div className='grid grid-cols-3 text-center  border-b-[1px] border-greyHover md:hidden '>
     {FeaturesNameList.map(({name,borderColor},index)=>{
    return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
