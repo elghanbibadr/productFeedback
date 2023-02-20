@@ -26,8 +26,8 @@ const RoadMapFeatures = () => {
    return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
    </div>
-    {roadMapData.map(({status,title,roadmapItems})=>{
-        return <RoadpMapItems status={status} title={title} roadmapItem={roadmapItems} />
+    {roadMapData.map(({status,title,roadmapItems},index)=>{
+        return  <RoadpMapItems className={`${setSlectedFeatureNameId==index ? "block" : "hidden"}`} status={status} title={title} roadmapItem={roadmapItems} />
     })}
     </>
   )
