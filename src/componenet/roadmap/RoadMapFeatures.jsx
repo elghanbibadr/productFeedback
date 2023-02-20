@@ -1,8 +1,18 @@
-import React , {useState} from  'react'
+import React , {useContext, useState} from  'react'
+import { AppContext } from '../store/AppContext'
 import FeaturesName from './FeaturesName'
+import RoadpMapItems from './RoadpMapItems'
+import SuggestionCard from '../suggestions/SuggestionCard'
 const RoadMapFeatures = () => {
     const FeaturesNameList=[{name:'Planned',borderColor:"border-orange"},{name:'In-Progress',borderColor:"border-purple"},{name:'live',borderColor:"border-blueLight"}]
+    const {plannedFeatures, inProgressFeatures, liveFeatures}=useContext(AppContext)
+    const roadMapData=[
+        {status:"planned",title:"Ideas prioritized for research",roadmapItems:plannedFeatures},
+        {status:"In-Progress",title:"Currently being developed",roadmapItems:inProgressFeatures},
+        {status:"Live",title:"Released features",roadmapItems:liveFeatures}
+    ]
 
+    console.log(roadMapData[0])
     const [selectedFeatureNameId,setSlectedFeatureNameId]=useState(0)
     const handleClick=(e) => {
     setSlectedFeatureNameId(e.target.id)
@@ -16,6 +26,9 @@ const RoadMapFeatures = () => {
    return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
    </div>
+    {roadMapData.map(({status,title,roadmapItems})=>{
+        return <RoadpMapItems status={status} title={title} roadmapItem={roadmapItems} />
+    })}
     </>
   )
 }
