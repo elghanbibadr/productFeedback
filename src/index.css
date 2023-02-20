@@ -15,7 +15,7 @@ body{
          @apply text-greyDarkest font-bold
     } 
     h2{
-      @apply text-white font-bold text-[0.94rem] md:text-[1.28rem]
+      @apply text-white font-bold text-[1rem] md:text-[1.28rem]
     }
 
      h3{

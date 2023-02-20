@@ -1,10 +1,12 @@
 import React from 'react'
 import Container from '../utils/Container'
 import RoadpMapHeader from '../roadmap/RoadpMapHeader'
+import RoadMapFeatures from '../roadmap/RoadMapFeatures'
 const RoadmapPage = () => {
   return (
-    <Container className='p-6 lg:px-60'>
+    <Container className=' lg:px-60'>
       <RoadpMapHeader/>
+      <RoadMapFeatures />
     </Container>
   )
 }

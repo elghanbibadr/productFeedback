@@ -9,6 +9,7 @@ export const AppContextProvider=({children})=>{
     const [productRequests,setProductRequests]=useState(data[0].productRequests)
     const suggestionsArray=productRequests.filter(element=>element.status=="suggestion")
     const plannedArray=productRequests.filter(element=>element.status=="planned")
+    const inProgressArray=productRequests.filter(element=>element.status=="in-progress")
     const liveArray=productRequests.filter(element=>element.status=="live")
    const [isUserSelectedAfeature,setIsUserSelectedAFeature]=useState(false)
    const [currentSuggestionId,setCurrentSuggestionId]=useState(undefined)
@@ -17,7 +18,8 @@ export const AppContextProvider=({children})=>{
    const [filterSuggestionCategory,setFilterSuggestionCategory]=useState('All')  
    const [suggestionNumber,setSuggestionNumber]=useState(suggestions.length)
    const [plannedFeatures,setplannedFeatures]=useState(plannedArray)
-    
+    const [inProgressFeatures,setInProgressFeatures]=useState(inProgressArray)
+    const [liveFeatures,setLiveFeatures]=useState(liveArray)
    const value={
        productRequests,
        setProductRequests,
@@ -34,7 +36,11 @@ export const AppContextProvider=({children})=>{
        filterSuggestionCategory,
        setFilterSuggestionCategory,
        plannedFeatures,
-       setplannedFeatures
+       setplannedFeatures,
+       inProgressFeatures,
+       setInProgressFeatures,
+       liveFeatures,
+       setLiveFeatures
     
    }
 
