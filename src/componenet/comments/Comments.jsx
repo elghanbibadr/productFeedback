@@ -9,7 +9,6 @@ export const Comments = () => {
     const {id,title,description,upvotes,category}=currentSuggestion
     const comments = currentSuggestion.comments;
 
-console.log(currentSuggestion)
 
   return (
     <>
