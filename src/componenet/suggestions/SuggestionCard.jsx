@@ -13,7 +13,7 @@ const SuggestionCard = (props) => {
   
   return (
     <Link to='/comment'>
-      <Card id={props.id}   onClick={handleSuggestionCardSlected}  className={` p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 ${!props.isSuggestionOfRoadmapPage ? 'md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' :''}  ${props.status==='planned' ? "border-t-4 border-orange" :props.status==='In-Progress' ? 'border-t-4 border-purple' : props.status==="live" ? "border-t-4 border-blueLight" :"border-none"}`} >
+      <Card id={props.id}   onClick={handleSuggestionCardSlected}  className={` p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 ${!props.isSuggestionOfRoadmapPage ? 'md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' :''}  ${props.status==='planned' ? "border-t-4 border-orange" :props.status==='In-Progress' ? 'border-t-4 border-purple' : props.status==="Live" ? "border-t-4 border-blueLight" :''}`} >
           <div  className={`col-span-2 ${!props.isSuggestionOfRoadmapPage ? 'md:col-span-4  md:col-start-2' :''} ` }>
       
             {props.isSuggestionOfRoadmapPage &&  <div className='flex items-center'>
