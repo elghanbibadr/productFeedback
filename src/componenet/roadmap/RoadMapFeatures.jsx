@@ -26,9 +26,9 @@ const RoadMapFeatures = () => {
    return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none text-greyHover"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
    </div>
-    <div className='md:grid grid-cols-3'>
+    <div className='lg:grid grid-cols-3 gap-x-4'>
       {roadMapData.map(({status,title,roadmapItems},index)=>{
-          return  <RoadpMapItems  id={index} className={`${selectedFeatureNameId==index ? "block p-6 " : "hidden md:block"}`} status={status} title={title} roadmapItem={roadmapItems} />
+          return  <RoadpMapItems  id={index} className={`p-6 ${selectedFeatureNameId==index ? "block  " : "hidden md:block"}`} status={status} title={title} roadmapItem={roadmapItems} />
       })}
     </div>
     </>
