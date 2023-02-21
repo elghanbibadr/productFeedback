@@ -11,7 +11,6 @@ export const AppContextProvider=({children})=>{
     const plannedArray=productRequests.filter(element=>element.status=="planned")
     const inProgressArray=productRequests.filter(element=>element.status=="in-progress")
     const liveArray=productRequests.filter(element=>element.status=="live")
-   const [isUserSelectedAfeature,setIsUserSelectedAFeature]=useState(false)
    const [currentSuggestionId,setCurrentSuggestionId]=useState(undefined)
    const [userSortByChoice,setUserSortByChoice]=useState('Most Upvotes')
      const [suggestions,setSuggestion]=useState(suggestionsArray)
@@ -23,8 +22,6 @@ export const AppContextProvider=({children})=>{
    const value={
        productRequests,
        setProductRequests,
-       isUserSelectedAfeature,
-       setIsUserSelectedAFeature,
        currentSuggestionId,
        setCurrentSuggestionId,
        userSortByChoice,

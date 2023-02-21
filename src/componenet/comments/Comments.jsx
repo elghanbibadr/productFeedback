@@ -5,10 +5,8 @@ import SingleComment from './SingleComment'
 import SuggestionCard from '../suggestions/SuggestionCard'
 export const Comments = () => {
   const {currentSuggestionId,productRequests}=useContext(AppContext)
-  //  const [comment,setComment]=useState(undefined)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     const {id,title,description,upvotes}=currentSuggestion
-    // setComment(currentSuggestion.comments)
     const comments = currentSuggestion.comments;
 
 

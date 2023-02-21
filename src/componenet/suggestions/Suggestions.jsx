@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import SuggestionCard from './SuggestionCard'
 import { AppContext } from '../store/AppContext';
-import Card from '../utils/Card';
 import NoFeedbackCard from './NoFeedbackCard';
 
 const Suggestions = () => {
 
-  const { userSortByChoice ,setSuggestionNumber,plannedFeatures, filterSuggestionCategory , suggestions} = useContext(AppContext)
+  const { userSortByChoice ,setSuggestionNumber, filterSuggestionCategory , suggestions} = useContext(AppContext)
   const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions)
- console.log(suggestions)
   useEffect(()=>{
     if (filterSuggestionCategory==='All'){
       setCurrentVisibleSuggestions(suggestions)

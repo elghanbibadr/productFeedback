@@ -1,17 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react';
 import Btn from '../utils/Btn'
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
-import { AppContext } from '../store/AppContext';
+import { Link } from 'react-router-dom';
 export const CommentsHeader = () => {
-    const {setIsUserSelectedAFeature }=useContext(AppContext)
-    const handleOnBackLinkClicked=()=>{
-       setIsUserSelectedAFeature(true);
-    }
+  
   return (
     <div className='flex-row-between mb-8'>
         <div className='flex-row-between'> 
             <img src={arrowLeft} alt="left arrow" />
-            <a onClick={handleOnBackLinkClicked} href="" className='text-sm ml-3 text-greyDark font-bold'>Go Back</a>
+            <Link to='/'  className='text-sm ml-3 text-greyDark font-bold'>Go Back</Link>
         </div>
         <Btn className='bg-blue' text='Edit Feedback'/>
     </div>
