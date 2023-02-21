@@ -14,12 +14,12 @@ const SuggestionCard = (props) => {
 
   
   return (
-    <Card id={props.id}   onClick={handleSuggestionCardSlected}  className={` p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 ${!props.isSuggestionOfRoadmapPage ? 'md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' :''} `} >
+    <Card id={props.id}   onClick={handleSuggestionCardSlected}  className={` p-6 suggestionCard mb-6 grid grid-cols-2 grid-row-[1fr_100px] gap-y-10 ${!props.isSuggestionOfRoadmapPage ? 'md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1' :''}  ${props.status==='planned' ? "border-t-4 border-orange" :props.status==='In-Progress' ? 'border-t-4 border-purple' :"border-t-4 border-blueLight"}`} >
         <div  className={`col-span-2 ${!props.isSuggestionOfRoadmapPage ? 'md:col-span-4  md:col-start-2' :''} ` }>
         {/* md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1 */}
         {/* md:col-span-4  md:col-start-2 */}
           {props.isSuggestionOfRoadmapPage &&  <div className='flex items-center'>
-            <span className={`inline-block h-2 w-2 mr-4 ${props.status==='planned' ? "bg-orange" :props.status==='In-Progress' ? 'bg-purple' :"bg-green-400"} rounded-full`}></span>
+            <span className={`inline-block h-2 w-2 mr-4 ${props.status==='planned' ? "bg-orange" :props.status==='In-Progress' ? 'bg-purple' :"bg-blueLight"} rounded-full`}></span>
             <p>{props.status}</p>
             </div>} 
           <h3>{props.title}</h3>
