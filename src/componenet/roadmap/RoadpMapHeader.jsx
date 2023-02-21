@@ -7,7 +7,7 @@ const RoadpMapHeader = () => {
   const { liveFeatures} =useContext(AppContext)
   console.log(liveFeatures)
   return (
-    <div className='flex-row-between p-4 bg-greyDarker'>
+    <div className='flex-row-between p-4 bg-greyDarker md:rounded-md md:px-8 md:py-6'>
         <div className='flex flex-col'>
              <div className='flex-row-between'>
              <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L2 5l4-4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
