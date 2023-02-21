@@ -23,12 +23,14 @@ const RoadMapFeatures = () => {
     <>
     <div className='grid grid-cols-3 text-center  border-b-[1px] border-greyHover md:hidden '>
     {FeaturesNameList.map(({name,borderColor},index)=>{
-   return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
+   return <h3  className={` ${(selectedFeatureNameId==index ) ?  `${borderColor} border-b-4`   : "border-none text-greyHover"} cursor-pointer py-4`} onClick={handleClick} id={index}>{name}</h3>
   })}   
    </div>
-    {roadMapData.map(({status,title,roadmapItems},index)=>{
-        return  <RoadpMapItems className={`${setSlectedFeatureNameId==index ? "block" : "hidden"}`} status={status} title={title} roadmapItem={roadmapItems} />
-    })}
+    <div className='md:grid grid-cols-3'>
+      {roadMapData.map(({status,title,roadmapItems},index)=>{
+          return  <RoadpMapItems  id={index} className={`${selectedFeatureNameId==index ? "block p-6 " : "hidden md:block"}`} status={status} title={title} roadmapItem={roadmapItems} />
+      })}
+    </div>
     </>
   )
 }
