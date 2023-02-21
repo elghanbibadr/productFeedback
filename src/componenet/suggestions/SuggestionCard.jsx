@@ -18,7 +18,10 @@ const SuggestionCard = (props) => {
         <div  className={`col-span-2 ${!props.isSuggestionOfRoadmapPage ? 'md:col-span-4  md:col-start-2' :''} ` }>
         {/* md:grid md:grid-cols-[80px_1fr_1fr_1fr_1fr_50px] md:grid-rows-1 */}
         {/* md:col-span-4  md:col-start-2 */}
-          {props.isSuggestionOfRoadmapPage && <p>{props.status}</p>} 
+          {props.isSuggestionOfRoadmapPage &&  <div className='flex items-center'>
+            <span className={`inline-block h-2 w-2 mr-4 ${props.status==='planned' ? "bg-orange" :props.status==='In-Progress' ? 'bg-purple' :"bg-green-400"} rounded-full`}></span>
+            <p>{props.status}</p>
+            </div>} 
           <h3>{props.title}</h3>
           <div>
               <p className='my-4'>{props.description}</p>
