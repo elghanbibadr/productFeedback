@@ -3,6 +3,7 @@ import Dropdown from '../../utils/Dropdown'
 import Btn from '../../utils/Btn'
 import suggestionIcon from "../../../images/suggestions/icon-suggestions.svg"
 import { AppContext } from '../../store/AppContext'
+import { Link } from 'react-router-dom'
 const SuggestionBar = () => {
  const {userSortByChoice,setUserSortByChoice,suggestionNumber}=useContext(AppContext)
   const handleSelecteOption=(option)=>{
@@ -20,7 +21,9 @@ const SuggestionBar = () => {
                 <Dropdown onSaveSelection={handleSelecteOption}    defaultOption='Most Upvotes' options={["Most Upvotes","least upvotes","most comments","least comments"]}/>
              </div>
         </div>
-            <Btn className='bg-purple whitespace-nowrap w-fit  transition-colors duration-300  hover:bg-purpleHover' text='+Add feedback' />
+            <Link to="/newFeedback">
+              <Btn className='bg-purple whitespace-nowrap w-fit  transition-colors duration-300  hover:bg-purpleHover' text='+Add feedback' />
+            </Link>
     </div>
   )
 }
