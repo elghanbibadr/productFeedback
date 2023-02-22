@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom'
 
 const SuggestionCard = (props) => {
   const {setCurrentSuggestionId}=useContext(AppContext);
-   const handleSuggestionCardSlected=(target)=> setCurrentSuggestionId(target.id)
+   const handleSuggestionCardSlected=(target)=>{
+     setCurrentSuggestionId(target.id)
+   }
 
   
   return (

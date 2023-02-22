@@ -1,11 +1,10 @@
-import React , {useContext, useState} from  'react'
+import React , {useContext, useEffect, useState} from  'react'
 import { AppContext } from '../store/AppContext'
-import FeaturesName from './FeaturesName'
 import RoadpMapItems from './RoadpMapItems'
-import SuggestionCard from '../suggestions/SuggestionCard'
 const RoadMapFeatures = () => {
      const FeaturesNameList=[{name:'Planned',borderColor:"border-orange"},{name:'In-Progress',borderColor:"border-purple"},{name:'live',borderColor:"border-blueLight"}]
     const {plannedFeatures, inProgressFeatures, liveFeatures}=useContext(AppContext)
+   
     const roadMapData=[
         {status:"planned",title:"Ideas prioritized for research",roadmapItems:plannedFeatures},
         {status:"In-Progress",title:"Currently being developed",roadmapItems:inProgressFeatures},
@@ -16,8 +15,9 @@ const RoadMapFeatures = () => {
     const handleClick=(e) => {
     setSlectedFeatureNameId(e.target.id)
   }
-  
 
+
+  
   return (
     <>
     <div className='grid grid-cols-3 text-center  border-b-[1px] border-greyHover lg:hidden '>

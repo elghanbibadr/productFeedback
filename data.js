@@ -22,7 +22,17 @@
             "name": "Suzanne Chang",
             "username": "upbeat1811"
           },
-          "replies": []
+          "replies": [
+            {
+              "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
+              "replyingTo": "arlen_the_marlin",
+              "user": {
+                "image": "https://shrtco.de/eMljUH",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
         },
         {
           "id": 2,
