@@ -17,13 +17,6 @@ module.exports = {
     'border-b-2':'0px'
       },
       colors: {
-        //       /* Primary */
-        // --radial-gradient: radial-gradient(
-        //   128.88% 128.88% at 103.9% -10.39%,
-        //   #e84d70 0%,
-        //   #a337f6 53.09%,
-        //   #28a7ed 100%
-        // );
         purple: '#ad1fe6',
         purpleHover: '#c75af6',
         blue: '#4661e6',
