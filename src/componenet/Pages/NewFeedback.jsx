@@ -4,11 +4,18 @@ import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
 const NewFeedback = () => {
     const [feedbackTitle,setFeedbackTitle] =useState('')
+   
 
-    const handleUserSelection=(selectedValue) => {
-        console.log(selectedValue)
+    const handleFeedbackTitleInputChange=(e) =>{
+       setFeedbackTitle(e.target.value)
     }
+     const handleUserSelection=(selectedValue) => {
+         console.log(selectedValue)
+     }
 
+     const handleFeedbackDetail=(value)=>{
+        console.log(value)
+     }
   return (
    <Container >
        <div className='bg-white p-10 lg:w-1/2 lg:mx-auto newFeedbackCard'>
@@ -18,7 +25,11 @@ const NewFeedback = () => {
             <div >
                 <label className='text-base text-greyDarkest font-semibold'  htmlFor='input-title '>Feedback Title</label>
                 <p className='text-sm' >add a short ,descriptive headline</p>
-                 <input  id='input-title' className='input ' type="text" value={feedbackTitle} />
+                 <input  id='input-title'
+                  className='input '
+                  type="text" value={feedbackTitle} 
+                   onChange={handleFeedbackTitleInputChange}
+                  />
             </div>
             {/* form label */}
             <div className='my-6' >
@@ -30,9 +41,9 @@ const NewFeedback = () => {
             </div>
             {/* form label */}
             <div >
-                <label className='text-base text-greyDarkest font-semibold'>Feedback Title</label>
-                <p className='text-sm'>add a short ,descriptive headline</p>
-                 <TextAreaInput/>
+                <label className='text-base text-greyDarkest font-semibold'>Feedback Detail</label>
+                <p className='text-sm'>Include any specific comments on what should be improved, added, etc.</p>
+                 <TextAreaInput onSaveTextAreaValue={handleFeedbackDetail}/>
             </div>
          </form>
         </div>

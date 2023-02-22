@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useRef } from 'react'
 
 const TextAreaInput = (props) => {
+  const [textAreaValue,setTextAreaValue] = useState('');
+
+  const handleInputChange=(e)=>{
+    setTextAreaValue(e.target.value)
+    // console.log(textAreaValue)
+    props.onSaveTextAreaValue(e.target.value)
+  }
   return (
-    <textarea className={ `${props.className} input resize-none`} placeholder={props.placeholder}/>
+    <textarea onChange={handleInputChange} className={ `${props.className} input resize-none`} value={textAreaValue} placeholder={props.placeholder}/>
   )
 }
 
