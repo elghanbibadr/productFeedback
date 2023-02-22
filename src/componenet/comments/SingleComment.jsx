@@ -1,8 +1,8 @@
 import React from 'react'
-import Reply from './Reply'
+
 const SingleComment = (props) => {
   return (
-   <div id={props.id} className="mb-5 border-b-[1px] pb-6 ">
+    <div id={props.id} className="mb-5 pb-1 ">
     <div className='flex-row-between'>
         <div className='flex'>
          <img className='h-10 w-10 object-cover rounded-full mr-4 ' src={props.user.image} alt='person image' />
@@ -13,14 +13,9 @@ const SingleComment = (props) => {
         </div>
         <a className='text-blue text-sm md:text-base font-semibold cursor-pointer'>Reply</a>
     </div> 
-    <p className='mt-4 md:ml-14'>
-      {props.content}
-    </p>
-    <ul className='ml-20 mt-6'>
-      {props.replies && props.replies.map(({replyingTo,content,user},index)=>{
-       return <Reply key={index} content={content} replyingTo={replyingTo} user={user} />
-      })}
-    </ul>
+    <div className='mt-4 md:ml-14 '>
+        <p ><strong className='text-purple font-bold'>@{props.replyingTo}</strong> {props.content}</p>
+    </div>
    </div>
   )
 }

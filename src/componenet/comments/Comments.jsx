@@ -1,7 +1,7 @@
 import React, { useContext} from 'react'
 import { AppContext } from '../store/AppContext'
 import Card from '../utils/Card'
-import SingleComment from './SingleComment'
+import SingleChat from './SingleChat'
 import SuggestionCard from '../suggestions/SuggestionCard'
 export const Comments = () => {
   const {currentSuggestionId,productRequests}=useContext(AppContext)
@@ -18,7 +18,7 @@ export const Comments = () => {
     <Card>
       <h3 className='text-base md:text-xl mb-6'>{comments && comments.length}  comment </h3>
        {comments &&  comments.map(({id,content,user,replies})=>{
-        return <SingleComment replies={replies} key={id} id={id} content={content} user={user} />
+        return <SingleChat replies={replies} key={id} id={id} content={content} user={user} />
        })}
     </Card>
     </>
