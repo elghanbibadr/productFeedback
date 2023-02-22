@@ -19,6 +19,12 @@ export const AppContextProvider=({children})=>{
    const [plannedFeatures,setplannedFeatures]=useState(plannedArray)
     const [inProgressFeatures,setInProgressFeatures]=useState(inProgressArray)
     const [liveFeatures,setLiveFeatures]=useState(liveArray)
+
+    // set the starting data of product features to local storage
+     useEffect(()=>{
+       localStorage.setItem("myData", JSON.stringify(productRequests))
+     })
+     
    const value={
        productRequests,
        setProductRequests,
