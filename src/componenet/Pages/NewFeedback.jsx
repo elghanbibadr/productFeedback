@@ -3,7 +3,8 @@ import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
 import { Link } from 'react-router-dom'
-import Btn from '../utils/Btn'
+import { useNavigate } from 'react-router-dom'
+import Btn from '../utils/Btn' 
 import newFeedbackIcon from '../../images/shared/icon-new-feedback.svg'
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 
@@ -12,6 +13,9 @@ const NewFeedback = () => {
      const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
      const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
     const [feedbackDetailValue,setFeedbackDetailValue]=useState("")
+    //  const [formIsValid,setFormIsValid] = useState(false)
+     const navigate = useNavigate();
+
 
      const handleFeedbackTitleInputChange=(e) =>{
         setFeedbackTitle(e.target.value)
@@ -29,9 +33,13 @@ const NewFeedback = () => {
 
      const handleFormSubmited=(e)=>{
          e.preventDefault()
-       if (!feedbackDetailValue || !feedbackTitle){
-        console.lo('invalid')
-       }
+        setFeedbackDetailInputTouched(true)
+        setFeedbackTitleInputTouched(true)
+        if (!feedbackDetailValue || !feedbackTitle){
+            return
+        }
+       navigate('/');
+
      }
 
   return (
@@ -78,7 +86,7 @@ const NewFeedback = () => {
                     <Link to="/">
                         <Btn className='bg-greyDarkest mx-3' text="cancel" />
                     </Link>
-                    <Btn className='bg-purple' text="Add Feedback" />
+                            <Btn className='bg-purple' text="Add Feedback" />
                 </div> 
              </form>
             </div>
