@@ -51,4 +51,4 @@ const NewFeedback = () => {
   )
 }
 
-export default NewFeedback
+export default NewFeedback;

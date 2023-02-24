@@ -10,7 +10,9 @@ export const CommentsHeader = () => {
             <img src={arrowLeft} alt="left arrow" />
             <Link to='/'  className='text-sm ml-3 text-greyDark font-bold'>Go Back</Link>
         </div>
-        <Btn className='bg-blue' text='Edit Feedback'/>
+      <Link to="/editfeedback">
+      <Btn className='bg-blue' text='Edit Feedback'/>
+      </Link>   
     </div>
   )
 }
