@@ -23,6 +23,13 @@ export const AppContextProvider=({children})=>{
     // get the stored data from the local storage
     // set the starting data of product features to local storage
      useEffect(()=>{
+        const data=  localStorage.getItem("myData" )
+        if (data){
+          setProductRequests(JSON.parse(productRequests))
+        }
+        console.log(data)
+     })
+     useEffect(()=>{
        localStorage.setItem("myData", JSON.stringify(productRequests))
      })
      
