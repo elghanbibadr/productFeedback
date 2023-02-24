@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
@@ -7,15 +7,19 @@ import { useNavigate } from 'react-router-dom'
 import Btn from '../utils/Btn' 
 import newFeedbackIcon from '../../images/shared/icon-new-feedback.svg'
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
+import { AppContext } from '../store/AppContext'
 
 const NewFeedback = () => {
      const [feedbackTitle,setFeedbackTitle] =useState('')
      const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
      const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
     const [feedbackDetailValue,setFeedbackDetailValue]=useState("")
+    const [category,setCategory]=useState("feature")
     //  const [formIsValid,setFormIsValid] = useState(false)
+    const {productRequests,setProductRequests,suggestions,setSuggestion}=useContext(AppContext)
      const navigate = useNavigate();
-
+  console.log(productRequests)
+  console.log("hi")
 
      const handleFeedbackTitleInputChange=(e) =>{
         setFeedbackTitle(e.target.value)
@@ -39,7 +43,17 @@ const NewFeedback = () => {
             return
         }
        navigate('/');
-
+      const createdFeedack={
+        id:productRequests.length+1,
+        title:feedbackTitle,
+        description:feedbackDetailValue,
+        status:"suggestion",
+        category:category,
+        comments:[],
+        upvotes:0,
+      }
+      setProductRequests(prv =>[...prv,createdFeedack])
+      setSuggestion(prv => [...prv,createdFeedack])
      }
 
   return (
@@ -72,7 +86,7 @@ const NewFeedback = () => {
                     <label className='text-base text-greyDarkest font-semibold'>Category</label>
                     <p className='text-sm' >Choose a category for your feedback</p>
                      <div className="input mb-10">
-                         <Dropdown name='newFeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={"Feature"} options={["Feature","UI","UX","Enhancement","Bug"]}/>
+                         <Dropdown name='newFeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
                      </div>
                 </div>
                 {/* form label */}
