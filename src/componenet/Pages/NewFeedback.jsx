@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
@@ -8,23 +8,30 @@ import newFeedbackIcon from '../../images/shared/icon-new-feedback.svg'
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 
 const NewFeedback = () => {
-    const [feedbackTitle,setFeedbackTitle] =useState('')
-   
+     const [feedbackTitle,setFeedbackTitle] =useState('')
+     const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
+     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
+    const [feedbackDetailValue,setFeedbackDetailValue]=useState("")
 
-    const handleFeedbackTitleInputChange=(e) =>{
-       setFeedbackTitle(e.target.value)
-    }
+     const handleFeedbackTitleInputChange=(e) =>{
+        setFeedbackTitle(e.target.value)
+        setFeedbackTitleInputTouched(true)
+     }
      const handleUserSelection=(selectedValue) => {
          console.log(selectedValue)
      }
 
      const handleFeedbackDetail=(value)=>{
-        console.log(value)
+        setFeedbackDetailValue(value)
+        setFeedbackDetailInputTouched(true)
+
      }
 
      const handleFormSubmited=(e)=>{
-        console.log("submited")
-        e.preventDefault()
+         e.preventDefault()
+       if (!feedbackDetailValue || !feedbackTitle){
+        console.lo('invalid')
+       }
      }
 
   return (
@@ -42,11 +49,15 @@ const NewFeedback = () => {
                 <div >
                     <label className='text-base text-greyDarkest font-semibold'  htmlFor='input-title '>Feedback Title</label>
                     <p className='text-sm' >add a short ,descriptive headline</p>
-                     <input  id='input-title'
-                      className='input '
-                      type="text" value={feedbackTitle}
+                     <input
+                       id='input-title'
+                       value={feedbackTitle}
                        onChange={handleFeedbackTitleInputChange}
+                      className={`${(!feedbackTitle && feedbackTitltInputTouched) ? "border-red border-2":""} input`}
+                      type="text"
+                      name
                       />
+                  {  feedbackTitltInputTouched &&  !feedbackTitle && <p className='text-red'>can't be empty</p> }
                 </div>
                 {/* form label */}
                 <div className='my-6' >
@@ -60,7 +71,8 @@ const NewFeedback = () => {
                 <div >
                     <label className='text-base text-greyDarkest font-semibold'>Feedback Detail</label>
                     <p className='text-sm'>Include any specific comments on what should be improved, added, etc.</p>
-                     <TextAreaInput onSaveTextAreaValue={handleFeedbackDetail}/>
+                     <TextAreaInput className={`${( feedbackDetailInputTouched &&  !feedbackDetailValue) ? "border-red border-2" :""}`} onSaveTextAreaValue={handleFeedbackDetail}/>
+                    { !feedbackDetailValue && feedbackDetailInputTouched &&  <p className='text-red'>can't be empty</p>}
                 </div>
                 <div className='mt-6 relative left-1/2' >
                     <Link to="/">
