@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
@@ -21,6 +21,16 @@ const NewFeedback = () => {
   console.log(productRequests)
   console.log("hi")
 
+
+  
+   useEffect(() => {
+       console.log('product requests updated')
+       localStorage.setItem("myData", JSON.stringify(productRequests))
+       console.log(productRequests)
+     },[productRequests])
+
+
+
      const handleFeedbackTitleInputChange=(e) =>{
         setFeedbackTitle(e.target.value)
         setFeedbackTitleInputTouched(true)
@@ -42,7 +52,6 @@ const NewFeedback = () => {
         if (!feedbackDetailValue || !feedbackTitle){
             return
         }
-       navigate('/');
       const createdFeedack={
         id:productRequests.length+1,
         title:feedbackTitle,
@@ -54,8 +63,20 @@ const NewFeedback = () => {
       }
       setProductRequests(prv =>[...prv,createdFeedack])
       setSuggestion(prv => [...prv,createdFeedack])
-     }
+      navigate('/');
 
+      
+    }
+
+    // useEffect(() => {
+    //        const data = localStorage.getItem("myData")
+    //        if (data) {
+    //          setProductRequests(JSON.parse(data))
+    //        }
+    //     }
+    //
+  
+    
   return (
    <Container >
        <div className='p-10 lg:w-1/2 lg:mx-auto '>
