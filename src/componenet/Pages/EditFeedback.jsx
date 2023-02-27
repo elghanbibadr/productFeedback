@@ -3,6 +3,7 @@ import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Dropdown from '../utils/Dropdown'
 import { Link } from 'react-router-dom'
+import editFeedbackIcon from "../../images/shared/icon-edit-feedback.svg"
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 
 const EditFeedback = () => {
@@ -22,11 +23,13 @@ const EditFeedback = () => {
   return (
    <Container >
        <div className=' lg:w-1/2 lg:mx-auto '>
-           <div className='flex items-center mb-6'>
+           <div className='flex items-center mb-10'>
                 <img src={arrowLeft} alt="left arrow" />
                 <Link to='/'  className='text-sm ml-3 text-greyDark font-bold'>Go Back</Link>
             </div>
-           <div className='bg-white p-10 newFeedbackCard'>
+           <div className='bg-white p-10 newFeedbackCard relative'>
+           <img className='absolute scale-125 -top-5' src={editFeedbackIcon} />
+
             <h1 className='text-xl md:text-2xl mb-10'>Editing Feedback</h1>
              <form>
                 {/* form label */}
