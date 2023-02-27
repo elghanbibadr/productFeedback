@@ -1,11 +1,10 @@
-
 import { createContext, useState, useEffect } from "react";
-import { json } from "react-router-dom";
 import { data } from "../../../data";
 export const AppContext = createContext(null);
 
 
-// import data from firebase
+
+
 export const AppContextProvider = ({ children }) => {
   const [productRequests, setProductRequests] = useState(data[0].productRequests)
   // const suggestionsArray=productRequests.filter(element=>element.status=="suggestion")
@@ -21,36 +20,19 @@ export const AppContextProvider = ({ children }) => {
   const [inProgressFeatures, setInProgressFeatures] = useState(inProgressArray)
   const [liveFeatures, setLiveFeatures] = useState(liveArray)
 
-  console.log('context runing')
-  console.log(productRequests)
-  //  get the stored data from the local storage
-  //  set the starting data of product features to local storage
- 
-    
+   
    useEffect(() => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
      },[])
 
      useEffect(() => {
       const data = localStorage.getItem("myData")
-      // c
       if (data){
         console.log(productRequests)
         setProductRequests(JSON.parse(data))
       }
      },[])
      
-
-        
-  //  useEffect(() => {
-  //   console.log('product requests updated')
-  //   localStorage.setItem("myData", JSON.stringify(productRequests))
-  //   console.log(productRequests)
-  // },[productRequests])
-
-     
- 
- 
 
   const value = {
     productRequests,

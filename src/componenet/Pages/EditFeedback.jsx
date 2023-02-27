@@ -10,7 +10,7 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,currentSuggestionId,suggestions, setSuggestion}=useContext(AppContext)
+    const {productRequests,currentSuggestionId,suggestions,plannedFeatures,setplannedFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     const {id,title,description,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
@@ -27,7 +27,8 @@ const EditFeedback = () => {
        setFeedbackTitleInputTouched(true)
     }
 
-    const handleUserSelection=(selectedValue) => setCategory(selectedValue) 
+    const handleUserSelecteCategory=(selectedValue) => setCategory(selectedValue) 
+    const handleUserUpdateStatus=(selectedValue) => setFeedbackStatus(selectedValue)
 
     const handleFeedbackDetail=(value)=>{
        setFeedbackDetailValue(value)
@@ -36,13 +37,9 @@ const EditFeedback = () => {
 
    const handleFeedackDeleted=(e)=>{
     e.preventDefault()
-    // const newSuggestions=
-    // console.log(newSuggestions)
     setSuggestion(suggestions.filter(item=>item.id!==id))
     navigate('/')
-    // lets delete the feedback from product requests
     
-  console.log('deleted feedbacsk')
    } 
 
     const handleFormSubmited=(e)=>{
@@ -50,6 +47,13 @@ const EditFeedback = () => {
        setFeedbackDetailInputTouched(true)
        setFeedbackTitleInputTouched(true)
        if (!feedbackDetailValue || !feedbackTitle) return;
+       console.log(feedbackStatus)
+       if (feedbackStatus==="Planned"){
+         setplannedFeatures(prv=>[...prv,currentSuggestion])
+         console.log(plannedFeatures)
+         setSuggestion(suggestions.filter(item=>item.id!==id))
+
+       }
          navigate('/');
   }
    
@@ -83,7 +87,7 @@ const EditFeedback = () => {
                    <label className='text-base text-greyDarkest font-semibold'>Category</label>
                    <p className='text-sm' >Choose a category for your feedback</p>
                     <div className="input mb-10">
-                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
+                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserSelecteCategory} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
                     </div>
                </div>
                {/* form label */}
@@ -91,7 +95,7 @@ const EditFeedback = () => {
                    <label className='text-base text-greyDarkest font-semibold'>Update Status</label>
                    <p className='text-sm' >Change feature state</p>
                     <div className="input mb-10">
-                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={feedbackStatus} options={["Suggestion","Planned","In-Progress","Live"]}/>
+                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserUpdateStatus} className='w-full' defaultOption={feedbackStatus} options={["Suggestion","Planned","In-Progress","Live"]}/>
                     </div>
                </div>
                   {/* form label */}
