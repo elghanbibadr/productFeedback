@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Btn from '../utils/Btn'
@@ -10,7 +10,7 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setSuggestion}=useContext(AppContext)
+    const {productRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     const {id,title,description,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
@@ -20,7 +20,10 @@ const EditFeedback = () => {
    const [category,setCategory]=useState(currentCategory)
    const [feedbackStatus,setFeedbackStatus]=useState("Suggestion")
    const navigate = useNavigate();
-
+  
+//    useEffect(()=>{
+//     console.log(suggestions)
+//    },[feedbackStatus,feedbackTitle,category,feedbackDetailValue])
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
@@ -47,8 +50,15 @@ const EditFeedback = () => {
        setFeedbackDetailInputTouched(true)
        setFeedbackTitleInputTouched(true)
        if (!feedbackDetailValue || !feedbackTitle) return;
+       if (feedbackStatus=='Suggestion') {
+        setSuggestion(suggestions.filter(item=>item.id!==id))
+        setSuggestion(prv => [...prv,{id:id,title:title,category:category,description:feedbackDetailValue,comments:prv.comments}])
        
+        navigate('/')
+        return
+     }
     //    if the user change the feedback status
+     
        if (feedbackStatus==="Planned"){
          setplannedFeatures(prv=>[...prv,currentSuggestion])
 
@@ -58,13 +68,13 @@ const EditFeedback = () => {
          
         }
        if (feedbackStatus==="Live"){
-        setInProgressFeatures(prv=>[...prv,currentSuggestion])
+        setLiveFeatures(prv=>[...prv,currentSuggestion])
          
         }
 
-
+      
         setSuggestion(suggestions.filter(item=>item.id!==id))
-        navigate('/');
+        navigate('/')
   }
    
  return (
