@@ -3,6 +3,7 @@ import Container from '../utils/Container'
 import TextAreaInput from '../utils/TextAreaInput'
 import Btn from '../utils/Btn'
 import Dropdown from '../utils/Dropdown'
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import editFeedbackIcon from "../../images/shared/icon-edit-feedback.svg"
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
@@ -10,56 +11,40 @@ import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
     const {productRequests,currentSuggestionId}=useContext(AppContext)
-    
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
-    const {id,title,description,upvotes,category:currentCategory}=currentSuggestion
+    const {title,description,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
     const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
    const [feedbackDetailValue,setFeedbackDetailValue]=useState(description)
    const [category,setCategory]=useState(currentCategory)
-
-    // const navigate = useNavigate();
-
-
+   const navigate = useNavigate();
 
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
        setFeedbackTitleInputTouched(true)
     }
-    const handleUserSelection=(selectedValue) => {
-        console.log(selectedValue)
-    }
+
+    const handleUserSelection=(selectedValue) => setCategory(selectedValue) 
 
     const handleFeedbackDetail=(value)=>{
        setFeedbackDetailValue(value)
        setFeedbackDetailInputTouched(true)
+   }
 
-    }
+   const handleFeedackDeleted=(e)=>{
+    e.preventDefault()
+  console.log('deleted feedbacsk')
+   } 
 
     const handleFormSubmited=(e)=>{
         e.preventDefault()
        setFeedbackDetailInputTouched(true)
        setFeedbackTitleInputTouched(true)
-       if (!feedbackDetailValue || !feedbackTitle){
-           return
-       }
-    //  const createdFeedack={
-    //    id:productRequests.length+1,
-    //    title:feedbackTitle,
-    //    description:feedbackDetailValue,
-    //    status:"suggestion",
-    //    category:category,
-    //    comments:[],
-    //    upvotes:0,
-    //  }
-    //  setProductRequests(prv =>[...prv,createdFeedack])
-    //  setSuggestion(prv => [...prv,createdFeedack])
-     navigate('/');
-
-     
-    }
+       if (!feedbackDetailValue || !feedbackTitle) return;
+         navigate('/');
+  }
    
  return (
   <Container >
@@ -102,7 +87,7 @@ const EditFeedback = () => {
                    { !feedbackDetailValue && feedbackDetailInputTouched &&  <p className='text-red'>can't be empty</p>}
                </div>
                <div className='flex-row-between mt-10'>
-                   <Btn className='bg-red mx-3' text="Delete" />
+                   <Btn onClick={handleFeedackDeleted} className='bg-red mx-3' text="Delete" />
                    <div  >
                        <Link to="/">
                            <Btn className='bg-greyDarkest mx-3' text="Cancel" />
