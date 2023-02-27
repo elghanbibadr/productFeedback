@@ -10,7 +10,7 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,currentSuggestionId,suggestions,plannedFeatures,setplannedFeatures,setSuggestion}=useContext(AppContext)
+    const {productRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     const {id,title,description,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
@@ -47,14 +47,24 @@ const EditFeedback = () => {
        setFeedbackDetailInputTouched(true)
        setFeedbackTitleInputTouched(true)
        if (!feedbackDetailValue || !feedbackTitle) return;
-       console.log(feedbackStatus)
+       
+    //    if the user change the feedback status
        if (feedbackStatus==="Planned"){
          setplannedFeatures(prv=>[...prv,currentSuggestion])
-         console.log(plannedFeatures)
-         setSuggestion(suggestions.filter(item=>item.id!==id))
 
        }
-         navigate('/');
+       if (feedbackStatus==="In-Progress"){
+        setInProgressFeatures(prv=>[...prv,currentSuggestion])
+         
+        }
+       if (feedbackStatus==="Live"){
+        setInProgressFeatures(prv=>[...prv,currentSuggestion])
+         
+        }
+
+
+        setSuggestion(suggestions.filter(item=>item.id!==id))
+        navigate('/');
   }
    
  return (

@@ -25,13 +25,12 @@ export const AppContextProvider = ({ children }) => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
      },[])
 
-     useEffect(() => {
-      const data = localStorage.getItem("myData")
-      if (data){
-        console.log(productRequests)
-        setProductRequests(JSON.parse(data))
-      }
-     },[])
+    //  useEffect(() => {
+    //   const data = localStorage.getItem("myData")
+    //   if (data){
+    //     setProductRequests(JSON.parse(data))
+    //   }
+    //  },[])
      
 
   const value = {
