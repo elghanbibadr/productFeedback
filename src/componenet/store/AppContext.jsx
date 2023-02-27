@@ -22,17 +22,24 @@ export const AppContextProvider = ({ children }) => {
   const [liveFeatures, setLiveFeatures] = useState(liveArray)
 
   console.log('context runing')
+  console.log(productRequests)
   //  get the stored data from the local storage
   //  set the starting data of product features to local storage
+ 
+    
+   useEffect(() => {
+       localStorage.setItem("myData", JSON.stringify(suggestions))
+     },[])
+
      useEffect(() => {
-       const data = localStorage.getItem("myData")
-       // c
-       if (data){
-         console.log(productRequests)
-         setProductRequests(JSON.parse(data))
-       }
-       // console.log(data)
-      },[])
+      const data = localStorage.getItem("myData")
+      // c
+      if (data){
+        console.log(productRequests)
+        setProductRequests(JSON.parse(data))
+      }
+     },[])
+     
 
         
   //  useEffect(() => {

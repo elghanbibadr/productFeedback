@@ -18,16 +18,16 @@ const NewFeedback = () => {
     //  const [formIsValid,setFormIsValid] = useState(false)
     const {productRequests,setProductRequests,suggestions,setSuggestion}=useContext(AppContext)
      const navigate = useNavigate();
-  console.log(productRequests)
-  console.log("hi")
+//   console.log(productRequests)
+//   console.log("hi")
 
 
   
-   useEffect(() => {
-       console.log('product requests updated')
-       localStorage.setItem("myData", JSON.stringify(productRequests))
-       console.log(productRequests)
-     },[productRequests])
+//    useEffect(() => {
+//        console.log('product requests updated')
+//        localStorage.setItem("myData", JSON.stringify(productRequests))
+//        console.log(productRequests)
+//      },[productRequests])
 
 
 
