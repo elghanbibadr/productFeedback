@@ -18,6 +18,7 @@ const EditFeedback = () => {
     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
    const [feedbackDetailValue,setFeedbackDetailValue]=useState(description)
    const [category,setCategory]=useState(currentCategory)
+   const [feedbackStatus,setFeedbackStatus]=useState("Suggestion")
    const navigate = useNavigate();
 
 
@@ -71,15 +72,24 @@ const EditFeedback = () => {
                      />
                  {  feedbackTitltInputTouched &&  !feedbackTitle && <p className='text-red'>can't be empty</p> }
                </div>
-               {/* form label */}
-               <div className='my-6' >
+                    {/* form label */}
+                    <div className='my-6' >
                    <label className='text-base text-greyDarkest font-semibold'>Category</label>
                    <p className='text-sm' >Choose a category for your feedback</p>
                     <div className="input mb-10">
-                        <Dropdown name='newFeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
+                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
                     </div>
                </div>
                {/* form label */}
+               <div className='my-6' >
+                   <label className='text-base text-greyDarkest font-semibold'>Update Status</label>
+                   <p className='text-sm' >Change feature state</p>
+                    <div className="input mb-10">
+                        <Dropdown name='FeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={feedbackStatus} options={["Suggestion","Planned","In-Progress","Live"]}/>
+                    </div>
+               </div>
+                  {/* form label */}
+
                <div >
                    <label className='text-base text-greyDarkest font-semibold'>Feedback Detail</label>
                    <p className='text-sm'>Include any specific comments on what should be improved, added, etc.</p>

@@ -15,28 +15,15 @@ const NewFeedback = () => {
      const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
     const [feedbackDetailValue,setFeedbackDetailValue]=useState("")
     const [category,setCategory]=useState("feature")
-    //  const [formIsValid,setFormIsValid] = useState(false)
     const {productRequests,setProductRequests,suggestions,setSuggestion}=useContext(AppContext)
      const navigate = useNavigate();
-//   console.log(productRequests)
-//   console.log("hi")
-
-
-  
-//    useEffect(() => {
-//        console.log('product requests updated')
-//        localStorage.setItem("myData", JSON.stringify(productRequests))
-//        console.log(productRequests)
-//      },[productRequests])
-
-
 
      const handleFeedbackTitleInputChange=(e) =>{
         setFeedbackTitle(e.target.value)
         setFeedbackTitleInputTouched(true)
      }
      const handleUserSelection=(selectedValue) => {
-         console.log(selectedValue)
+        setCategory(selectedValue)
      }
 
      const handleFeedbackDetail=(value)=>{
@@ -67,14 +54,6 @@ const NewFeedback = () => {
 
       
     }
-
-    // useEffect(() => {
-    //        const data = localStorage.getItem("myData")
-    //        if (data) {
-    //          setProductRequests(JSON.parse(data))
-    //        }
-    //     }
-    //
   
     
   return (
@@ -107,7 +86,7 @@ const NewFeedback = () => {
                     <label className='text-base text-greyDarkest font-semibold'>Category</label>
                     <p className='text-sm' >Choose a category for your feedback</p>
                      <div className="input mb-10">
-                         <Dropdown name='newFeedbackDropDown' onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
+                         <Dropdown name="FeedbackDropDown" onSaveSelection={handleUserSelection} className='w-full' defaultOption={category} options={["Feature","UI","UX","Enhancement","Bug"]}/>
                      </div>
                 </div>
                 {/* form label */}
