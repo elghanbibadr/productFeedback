@@ -96,7 +96,7 @@ const NewFeedback = () => {
                      <TextAreaInput className={`${( feedbackDetailInputTouched &&  !feedbackDetailValue) ? "border-red border-2" :""}`} onSaveTextAreaValue={handleFeedbackDetail}/>
                     { !feedbackDetailValue && feedbackDetailInputTouched &&  <p className='text-red'>can't be empty</p>}
                 </div>
-                <div className='mt-6 relative left-1/2' >
+                <div className='   mt-6 relative left-1/3 md:left-1/2' >
                     <Link to="/">
                         <Btn className='bg-greyDarkest mx-3' text="cancel" />
                     </Link>

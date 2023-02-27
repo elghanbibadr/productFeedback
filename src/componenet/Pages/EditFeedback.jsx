@@ -10,9 +10,9 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,currentSuggestionId}=useContext(AppContext)
+    const {productRequests,currentSuggestionId,suggestions, setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
-    const {title,description,category:currentCategory}=currentSuggestion
+    const {id,title,description,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
     const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
@@ -36,6 +36,12 @@ const EditFeedback = () => {
 
    const handleFeedackDeleted=(e)=>{
     e.preventDefault()
+    // const newSuggestions=
+    // console.log(newSuggestions)
+    setSuggestion(suggestions.filter(item=>item.id!==id))
+    navigate('/')
+    // lets delete the feedback from product requests
+    
   console.log('deleted feedbacsk')
    } 
 
@@ -96,7 +102,7 @@ const EditFeedback = () => {
                     <TextAreaInput textAreaValue={description} className={`${( feedbackDetailInputTouched &&  !feedbackDetailValue) ? "border-red border-2" :""}`} onSaveTextAreaValue={handleFeedbackDetail}/>
                    { !feedbackDetailValue && feedbackDetailInputTouched &&  <p className='text-red'>can't be empty</p>}
                </div>
-               <div className='flex-row-between mt-10'>
+               <div className='flex-row-between mt-10 flex-nowrap '>
                    <Btn onClick={handleFeedackDeleted} className='bg-red mx-3' text="Delete" />
                    <div  >
                        <Link to="/">
