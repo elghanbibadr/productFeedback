@@ -62,15 +62,15 @@ const EditFeedback = () => {
        
      
        if (feedbackStatus==="Planned"){
-         setplannedFeatures(prv=>[...prv,currentSuggestion])
+         setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
 
        }
        if (feedbackStatus==="In-Progress"){
-        setInProgressFeatures(prv=>[...prv,currentSuggestion])
+        setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
          
         }
        if (feedbackStatus==="Live"){
-        setLiveFeatures(prv=>[...prv,currentSuggestion])
+        setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
          
         }
 
