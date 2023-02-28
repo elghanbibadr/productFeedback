@@ -10,9 +10,9 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
+    const {productRequests,setProductRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
-    const {id,title,description,category:currentCategory}=currentSuggestion
+    const {id,title,description,upvotes,comments, category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
     const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
@@ -21,9 +21,6 @@ const EditFeedback = () => {
    const [feedbackStatus,setFeedbackStatus]=useState("Suggestion")
    const navigate = useNavigate();
   
-//    useEffect(()=>{
-//     console.log(suggestions)
-//    },[feedbackStatus,feedbackTitle,category,feedbackDetailValue])
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
@@ -52,12 +49,17 @@ const EditFeedback = () => {
        if (!feedbackDetailValue || !feedbackTitle) return;
        if (feedbackStatus=='Suggestion') {
         setSuggestion(suggestions.filter(item=>item.id!==id))
-        setSuggestion(prv => [...prv,{id:id,title:title,category:category,description:feedbackDetailValue,comments:prv.comments}])
-       
+        
+        setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category,upvotes:upvotes,description:feedbackDetailValue,comments}])
+        setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
+        setProductRequests(productRequests.filter(item=>item.id!==id))
+        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category,description:feedbackDetailValue,upvotes ,comments}])
+        setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
+        
         navigate('/')
         return
      }
-    //    if the user change the feedback status
+       
      
        if (feedbackStatus==="Planned"){
          setplannedFeatures(prv=>[...prv,currentSuggestion])
