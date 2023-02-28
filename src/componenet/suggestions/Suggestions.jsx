@@ -5,8 +5,13 @@ import NoFeedbackCard from './NoFeedbackCard';
 
 const Suggestions = () => {
 
-  const { userSortByChoice,setSuggestionNumber, filterSuggestionCategory , suggestions} = useContext(AppContext)
+  const { userSortByChoice,setSuggestionNumber,setSuggestion,productRequests, filterSuggestionCategory , suggestions} = useContext(AppContext)
   const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
+
+useEffect(()=>{
+  setSuggestion(productRequests.filter(element => element.status == "suggestion"))
+},[])
+  
 
 
   useEffect(()=>{
@@ -20,7 +25,7 @@ const Suggestions = () => {
     setSuggestionNumber(filteredSuggestions.length)
   },[filterSuggestionCategory])
   
-
+ 
   useEffect(()=>{
      sortItems()
    },[userSortByChoice])

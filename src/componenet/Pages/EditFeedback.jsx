@@ -12,13 +12,14 @@ import { AppContext } from '../store/AppContext'
 const EditFeedback = () => {
     const {productRequests,setProductRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
-    const {id,title,description,upvotes,comments, category:currentCategory}=currentSuggestion
+    console.log(currentSuggestion)
+    const {id,title,description,upvotes,comments, status,category:currentCategory}=currentSuggestion
     const [feedbackTitle,setFeedbackTitle] =useState(title)
     const [feedbackTitltInputTouched,setFeedbackTitleInputTouched] = useState(false)
     const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
    const [feedbackDetailValue,setFeedbackDetailValue]=useState(description)
    const [category,setCategory]=useState(currentCategory)
-   const [feedbackStatus,setFeedbackStatus]=useState("Suggestion")
+   const [feedbackStatus,setFeedbackStatus]=useState(status)
    const navigate = useNavigate();
   
 
@@ -47,36 +48,36 @@ const EditFeedback = () => {
        setFeedbackDetailInputTouched(true)
        setFeedbackTitleInputTouched(true)
        if (!feedbackDetailValue || !feedbackTitle) return;
-       if (feedbackStatus=='Suggestion') {
-        setSuggestion(suggestions.filter(item=>item.id!==id))
-        
-        setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
-        setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
+       //first I'll remove the current feedbacj    
+        // setSuggestion(suggestions.filter(item=>item.id!==id))
+        //  now let's create another feedback with the new information assuming that the user has changed sth
+        // setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
+        // setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
         setProductRequests(productRequests.filter(item=>item.id!==id))
-        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),description:feedbackDetailValue,upvotes ,comments}])
+        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),status:status,description:feedbackDetailValue,upvotes ,comments}])
         setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
-        
+        setSuggestion(productRequests.filter(element => element.status == "suggestion"))
         navigate('/')
-        return
-     }
+        // return
+     
        
      
-       if (feedbackStatus==="Planned"){
-         setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
+    //    if (feedbackStatus==="Planned"){
+    //      setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
 
-       }
-       if (feedbackStatus==="In-Progress"){
-        setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
+    //    }
+    //    if (feedbackStatus==="In-Progress"){
+    //     setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
          
-        }
-       if (feedbackStatus==="Live"){
-        setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
+    //     }
+    //    if (feedbackStatus==="Live"){
+    //     setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
          
-        }
+    //     }
 
       
-        setSuggestion(suggestions.filter(item=>item.id!==id))
-        navigate('/')
+        // setSuggestion(suggestions.filter(item=>item.id!==id))
+        // navigate('/')
   }
    
  return (
