@@ -50,10 +50,10 @@ const EditFeedback = () => {
        if (feedbackStatus=='Suggestion') {
         setSuggestion(suggestions.filter(item=>item.id!==id))
         
-        setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category,upvotes:upvotes,description:feedbackDetailValue,comments}])
+        setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
         setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
         setProductRequests(productRequests.filter(item=>item.id!==id))
-        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category,description:feedbackDetailValue,upvotes ,comments}])
+        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),description:feedbackDetailValue,upvotes ,comments}])
         setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
         
         navigate('/')
