@@ -4,6 +4,7 @@ import TextAreaInput from '../utils/TextAreaInput'
 import Btn from '../utils/Btn'
 import Dropdown from '../utils/Dropdown'
 import { useNavigate } from 'react-router-dom'
+import { data } from '../../../data'
 import { Link } from 'react-router-dom'
 import editFeedbackIcon from "../../images/shared/icon-edit-feedback.svg"
 import arrowLeft from "../../images/shared/icon-arrow-left.svg";
@@ -22,7 +23,6 @@ const EditFeedback = () => {
    const [feedbackStatus,setFeedbackStatus]=useState(status)
    const navigate = useNavigate();
 
-   console.log(currentSuggestion)
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
@@ -39,11 +39,21 @@ const EditFeedback = () => {
 
    const handleFeedackDeleted=(e)=>{
     e.preventDefault()
-    setSuggestion(suggestions.filter(item=>item.id!==id))
-    setCurrentVisibleSuggestions(suggestions.filter(item=>item.id!==id))
-
+    if (feedbackStatus==="suggestion"){
+        setSuggestion(suggestions.filter(item=>item.id!==id))
+        setCurrentVisibleSuggestions(suggestions.filter(item=>item.id!==id))
+    }
+  if (feedbackStatus==="planned"){
+    setplannedFeatures(prv=> prv.filter(item=>item.id!==id))
+  }
+  if (feedbackStatus==="live"){
+    setLiveFeatures(prv=> prv.filter(item=>item.id!==id))
+  }
+  if (feedbackStatus==="in-progress"){
+    setInProgressFeatures(prv=> prv.filter(item=>item.id!==id))
+  }
     navigate('/')
-    
+
    } 
 
     const handleFormSubmited=(e)=>{
@@ -68,7 +78,6 @@ const EditFeedback = () => {
         // return
      
        
-     
        if (feedbackStatus==="Planned"){
          setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
 
@@ -87,6 +96,8 @@ const EditFeedback = () => {
      navigate('/')
   }
    
+  console.log(feedbackStatus)
+
  return (
   <Container >
       <div className='p-10 lg:w-1/2 lg:mx-auto '>

@@ -16,8 +16,9 @@ export const AppContextProvider = ({ children }) => {
   const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
 
   const [liveFeatures, setLiveFeatures] = useState(productRequests.filter(element => element.status == "live"))
-  console.log(productRequests)
-  console.log(suggestionArray)
+  // console.log(productRequests)
+  console.log("planned",plannedFeatures)
+  // console.log(suggestionArray)
 
 
    useEffect(() => {
