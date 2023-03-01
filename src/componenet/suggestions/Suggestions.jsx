@@ -3,16 +3,21 @@ import SuggestionCard from './SuggestionCard'
 import { AppContext } from '../store/AppContext';
 import NoFeedbackCard from './NoFeedbackCard';
 
+
 const Suggestions = () => {
 
-  const { userSortByChoice,setSuggestionNumber,setSuggestion,productRequests, filterSuggestionCategory , suggestions} = useContext(AppContext)
-  const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
+  const { currentVisibleSuggestions,setCurrentVisibleSuggestions, setFilterSuggestionCategory,userSortByChoice,setSuggestionNumber,setSuggestion,productRequests, filterSuggestionCategory , suggestions} = useContext(AppContext)
+
+
+  // useEffect(()=>{
+  //   setCurrentVisibleSuggestions(suggestions)
+  // },[suggestions])
+  
+console.log(currentVisibleSuggestions)
 
 useEffect(()=>{
-  setSuggestion(productRequests.filter(element => element.status == "suggestion"))
+  setFilterSuggestionCategory('All')
 },[])
-  
-
 
   useEffect(()=>{
     if (filterSuggestionCategory==='All'){

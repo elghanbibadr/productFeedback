@@ -10,7 +10,7 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const {productRequests,setProductRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
+    const {currentVisibleSuggestions,setCurrentVisibleSuggestions,productRequests,setProductRequests,currentSuggestionId,suggestions,setInProgressFeatures,setplannedFeatures,setLiveFeatures,setSuggestion}=useContext(AppContext)
     const currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
     console.log(currentSuggestion)
     const {id,title,description,upvotes,comments, status,category:currentCategory}=currentSuggestion
@@ -21,7 +21,7 @@ const EditFeedback = () => {
    const [category,setCategory]=useState(currentCategory)
    const [feedbackStatus,setFeedbackStatus]=useState(status)
    const navigate = useNavigate();
-  
+//   const newEditedFeedack=;
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
@@ -39,6 +39,8 @@ const EditFeedback = () => {
    const handleFeedackDeleted=(e)=>{
     e.preventDefault()
     setSuggestion(suggestions.filter(item=>item.id!==id))
+    setCurrentVisibleSuggestions(suggestions.filter(item=>item.id!==id))
+
     navigate('/')
     
    } 
@@ -49,35 +51,39 @@ const EditFeedback = () => {
        setFeedbackTitleInputTouched(true)
        if (!feedbackDetailValue || !feedbackTitle) return;
        //first I'll remove the current feedbacj    
-        // setSuggestion(suggestions.filter(item=>item.id!==id))
-        //  now let's create another feedback with the new information assuming that the user has changed sth
-        // setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,description:feedbackDetailValue,comments}])
-        // setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
-        setProductRequests(productRequests.filter(item=>item.id!==id))
-        setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),status:status,description:feedbackDetailValue,upvotes ,comments}])
-        setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
-        setSuggestion(productRequests.filter(element => element.status == "suggestion"))
-        navigate('/')
+       //  now let's create another feedback with the new information assuming that the user has changed sth
+       setProductRequests(productRequests.filter(item=>item.id!==id))
+       setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+       setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
+       setSuggestion(prv =>prv.filter(item=>item.id!==id))
+       setCurrentVisibleSuggestions(suggestions.filter(item=>item.id!==id))
+       if (feedbackStatus==="suggestion") {
+           setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+           setCurrentVisibleSuggestions(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+            //  setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
+            // setCurrentVisibleSuggestions([{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+
+       }
         // return
      
        
      
-    //    if (feedbackStatus==="Planned"){
-    //      setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+       if (feedbackStatus==="Planned"){
+         setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
 
-    //    }
-    //    if (feedbackStatus==="In-Progress"){
-    //     setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
-         
-    //     }
-    //    if (feedbackStatus==="Live"){
-    //     setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
-         
-    //     }
+       }
+       if (feedbackStatus==="In-Progress"){
+        setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+  
+        }
+       if (feedbackStatus==="Live"){
+        setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+  
+        }
 
       
         // setSuggestion(suggestions.filter(item=>item.id!==id))
-        // navigate('/')
+     navigate('/')
   }
    
  return (

@@ -2,9 +2,6 @@ import { createContext, useState, useEffect } from "react";
 import { data } from "../../../data";
 export const AppContext = createContext(null);
 
-
-
-
 export const AppContextProvider = ({ children }) => {
   const [productRequests, setProductRequests] = useState(data[0].productRequests)
   const inProgressArray = productRequests.filter(element => element.status == "in-progress")
@@ -16,11 +13,12 @@ export const AppContextProvider = ({ children }) => {
   const [suggestionNumber, setSuggestionNumber] = useState(suggestions.length)
   const [plannedFeatures, setplannedFeatures] = useState(productRequests.filter(element => element.status == "planned"))
   const [inProgressFeatures, setInProgressFeatures] = useState(inProgressArray)
+  const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
+
   const [liveFeatures, setLiveFeatures] = useState(productRequests.filter(element => element.status == "live"))
   console.log(productRequests)
   console.log(suggestionArray)
-  
-  setSuggestion(productRequests.filter(element => element.status == "suggestion"))
+
 
    useEffect(() => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
@@ -52,7 +50,9 @@ export const AppContextProvider = ({ children }) => {
     inProgressFeatures,
     setInProgressFeatures,
     liveFeatures,
-    setLiveFeatures
+    setLiveFeatures,
+    currentVisibleSuggestions,
+    setCurrentVisibleSuggestions
 
   }
 
