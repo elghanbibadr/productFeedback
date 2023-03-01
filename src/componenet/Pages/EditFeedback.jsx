@@ -21,7 +21,8 @@ const EditFeedback = () => {
    const [category,setCategory]=useState(currentCategory)
    const [feedbackStatus,setFeedbackStatus]=useState(status)
    const navigate = useNavigate();
-//   const newEditedFeedack=;
+
+   console.log(currentSuggestion)
 
     const handleFeedbackTitleInputChange=(e) =>{
        setFeedbackTitle(e.target.value)
@@ -53,13 +54,13 @@ const EditFeedback = () => {
        //first I'll remove the current feedbacj    
        //  now let's create another feedback with the new information assuming that the user has changed sth
        setProductRequests(productRequests.filter(item=>item.id!==id))
-       setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+       setProductRequests(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
        setProductRequests(prv =>prv.sort((a,b)=>a.id-b.id))
        setSuggestion(prv =>prv.filter(item=>item.id!==id))
        setCurrentVisibleSuggestions(suggestions.filter(item=>item.id!==id))
        if (feedbackStatus==="suggestion") {
-           setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
-           setCurrentVisibleSuggestions(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+           setSuggestion(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
+           setCurrentVisibleSuggestions(prv => [...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
             //  setSuggestion(prv =>prv.sort((a,b)=>a.id-b.id))
             // setCurrentVisibleSuggestions([{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
 
@@ -69,15 +70,15 @@ const EditFeedback = () => {
        
      
        if (feedbackStatus==="Planned"){
-         setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+         setplannedFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
 
        }
        if (feedbackStatus==="In-Progress"){
-        setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+        setInProgressFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
   
         }
        if (feedbackStatus==="Live"){
-        setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:status,description:feedbackDetailValue,comments}])
+        setLiveFeatures(prv=>[...prv,{id:id,title:feedbackTitle,category:category.toLowerCase(),upvotes:upvotes,status:feedbackStatus,description:feedbackDetailValue,comments}])
   
         }
 
