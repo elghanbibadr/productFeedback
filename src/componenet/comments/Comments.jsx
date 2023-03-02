@@ -9,9 +9,11 @@ export const Comments = () => {
      const {id,title,description,upvotes,category,comments:currentComments}=currentSuggestion
 
  console.log(currentComments)
+ console.log(currentSuggestion)
 
     useEffect(()=>{
     setComments(currentComments)
+    
     console.log(comments)
     },[])
 
