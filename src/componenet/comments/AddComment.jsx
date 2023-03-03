@@ -6,8 +6,10 @@ import { AppContext } from '../store/AppContext'
 import { data } from '../../../data'
 
 const AddComment = () => {
-   const {comments,setComments}=useContext(AppContext)
+  const {comments,setCurrentVisibleSuggestions, productRequests,suggestions,setComments,setProductRequests,setSuggestion,currentSuggestionId}=useContext(AppContext)
   const [commentContent,setCommentContent] =useState('')
+  const  currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
+
     console.log(comments)
 
    const handleUserAddComment=(value)=>{
@@ -15,7 +17,13 @@ const AddComment = () => {
    }
 
    const handleCommentPosted=()=>{
-    if (comments) setComments(prv => [...prv,{id:16,"content":commentContent,user:data[0]["currentUser"],"replies":[]}])
+    if (commentContent) 
+    // lets remove the curent suggestion and replace it with another one the holds the latest comment
+    // setSuggestion(currentSuggestion)
+    setSuggestion(suggestions.filter(item => item.id !== id))
+    setCurrentVisibleSuggestions(suggestions.filter(item => item.id !== currentSuggestion.id))
+    // setComments(prv => [...prv,{id:16,"content":commentContent,user:data[0]["currentUser"],"replies":[]}])
+    // setProductRequests([])
     
    }
 
