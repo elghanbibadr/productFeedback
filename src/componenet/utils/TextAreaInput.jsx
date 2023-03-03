@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 
 const TextAreaInput = (props) => {
-  const [textAreaValue,setTextAreaValue] = useState(props.textAreaValue);
+  const [textAreaValue,setTextAreaValue] = useState(props.InputValue);
 
   const handleInputChange=(e)=>{
     setTextAreaValue(e.target.value)
