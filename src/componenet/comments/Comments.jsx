@@ -8,14 +8,14 @@ export const Comments = () => {
    const  currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
      const {id,title,description,upvotes,category,comments:currentComments}=currentSuggestion
 
- console.log(currentComments)
- console.log(currentSuggestion)
+// console.log(currentComments)
+console.log(currentSuggestion)
 
-    useEffect(()=>{
-    setComments(currentComments)
+     useEffect(()=>{
+     setComments(currentComments)
     
-    console.log(comments)
-    },[])
+    // console.log(comments)
+     },[])
 
   return (
     <>
