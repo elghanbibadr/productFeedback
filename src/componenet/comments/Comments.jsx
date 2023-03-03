@@ -4,8 +4,7 @@ import Card from '../utils/Card'
 import SingleChat from './SingleChat'
 import SuggestionCard from '../suggestions/SuggestionCard'
 export const Comments = () => {
-  const {currentSuggestionId,currentVisibleSuggestions}=useContext(AppContext)
-   const  currentSuggestion=currentVisibleSuggestions.find(item => item.id==currentSuggestionId)
+  const {currentVisibleSuggestions,currentSuggestion}=useContext(AppContext)
      const {id,title,description,upvotes,category,comments}=currentSuggestion
 
 

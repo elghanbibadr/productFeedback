@@ -13,9 +13,11 @@ export const AppContextProvider = ({ children }) => {
   const [suggestionNumber, setSuggestionNumber] = useState(suggestions.length)
   const [plannedFeatures, setplannedFeatures] = useState(productRequests.filter(element => element.status == "planned"))
   const [inProgressFeatures, setInProgressFeatures] = useState(inProgressArray)
-  const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
+  const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState([]);
+  const [currentSuggestion,setCurrentSuggestion]=useState(undefined)
   const [liveFeatures, setLiveFeatures] = useState(productRequests.filter(element => element.status == "live"))
  
+  console.log(currentSuggestion)
 
    useEffect(() => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
@@ -50,6 +52,8 @@ export const AppContextProvider = ({ children }) => {
     setLiveFeatures,
     currentVisibleSuggestions,
     setCurrentVisibleSuggestions,
+    currentSuggestion,
+    setCurrentSuggestion
  
   }
 

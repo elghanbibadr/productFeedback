@@ -6,9 +6,8 @@ import { AppContext } from '../store/AppContext'
 import { data } from '../../../data'
 
 const AddComment = () => {
-  const {comments,currentVisibleSuggestions,setCurrentVisibleSuggestions, productRequests,suggestions,setComments,setProductRequests,setSuggestion,currentSuggestionId}=useContext(AppContext)
+  const {comments,currentVisibleSuggestions,setCurrentVisibleSuggestions,currentSuggestion, productRequests,suggestions,setComments,setProductRequests,setSuggestion,currentSuggestionId}=useContext(AppContext)
   const [commentContent,setCommentContent] =useState('')
-  const  currentSuggestion=productRequests.find(item => item.id==currentSuggestionId)
 const defaultUser={
   "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   "name": "Jesse Ronda",
