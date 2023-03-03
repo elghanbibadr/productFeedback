@@ -7,7 +7,6 @@ export const AppContextProvider = ({ children }) => {
   const inProgressArray = productRequests.filter(element => element.status == "in-progress")
   const [currentSuggestionId, setCurrentSuggestionId] = useState(undefined)
   const [userSortByChoice, setUserSortByChoice] = useState('Most Upvotes')
-  const [comments,setComments]=useState(undefined)
   const suggestionArray=productRequests.filter(element => element.status == "suggestion")
   const [filterSuggestionCategory, setFilterSuggestionCategory] = useState('All')
   const [suggestions, setSuggestion] = useState(productRequests.filter(element => element.status == "suggestion"))
@@ -17,7 +16,6 @@ export const AppContextProvider = ({ children }) => {
   const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState(suggestions);
   const [liveFeatures, setLiveFeatures] = useState(productRequests.filter(element => element.status == "live"))
  
-console.log(currentVisibleSuggestions)
 
    useEffect(() => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
@@ -52,9 +50,7 @@ console.log(currentVisibleSuggestions)
     setLiveFeatures,
     currentVisibleSuggestions,
     setCurrentVisibleSuggestions,
-    comments,
-    setComments
-
+ 
   }
 
   return <AppContext.Provider value={value} >{children}</AppContext.Provider>
