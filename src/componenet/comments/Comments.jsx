@@ -4,10 +4,19 @@ import Card from '../utils/Card'
 import SingleChat from './SingleChat'
 import SuggestionCard from '../suggestions/SuggestionCard'
 export const Comments = () => {
-  const {currentVisibleSuggestions,currentSuggestion}=useContext(AppContext)
-     const {id,title,description,upvotes,category,comments}=currentSuggestion
+  const {currentVisibleSuggestions, suggestions, currentSuggestionId}=useContext(AppContext)
+  const currentSuggestion=suggestions.find(suggestion => suggestion.id == currentSuggestionId) 
+  const {id,title,description,upvotes,category,comments}=currentSuggestion
+   
 
 
+  console.log(currentSuggestion)
+    //  console.log(currentSuggestionId)
+    //  useEffect(()=>{
+      
+    //  })
+
+ 
   return (
     <>
     <SuggestionCard category={category}  id={id} title={title} description={description} upvotes={upvotes} commentsLength={comments &&  comments.length } />

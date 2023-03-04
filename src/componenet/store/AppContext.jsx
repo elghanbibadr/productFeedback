@@ -14,11 +14,12 @@ export const AppContextProvider = ({ children }) => {
   const [plannedFeatures, setplannedFeatures] = useState(productRequests.filter(element => element.status == "planned"))
   const [inProgressFeatures, setInProgressFeatures] = useState(inProgressArray)
   const [currentVisibleSuggestions,setCurrentVisibleSuggestions]=useState([]);
-  const [currentSuggestion,setCurrentSuggestion]=useState(undefined)
+   const [currentSuggestion,setCurrentSuggestion]=useState(undefined)
   const [liveFeatures, setLiveFeatures] = useState(productRequests.filter(element => element.status == "live"))
  
   console.log(currentSuggestion)
 
+  console.log(currentSuggestion)
    useEffect(() => {
        localStorage.setItem("myData", JSON.stringify(suggestions))
      },[])

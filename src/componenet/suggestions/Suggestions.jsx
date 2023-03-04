@@ -6,7 +6,7 @@ import NoFeedbackCard from './NoFeedbackCard';
 
 const Suggestions = () => {
 
-  const { currentVisibleSuggestions,setCurrentVisibleSuggestions, setFilterSuggestionCategory,userSortByChoice,setSuggestionNumber,setSuggestion,productRequests, filterSuggestionCategory , suggestions} = useContext(AppContext)
+  const { currentVisibleSuggestions,setCurrentVisibleSuggestions, setFilterSuggestionCategory,userSortByChoice,setSuggestionNumber, filterSuggestionCategory , suggestions} = useContext(AppContext)
 
 useEffect(()=>{
   setFilterSuggestionCategory('All')
