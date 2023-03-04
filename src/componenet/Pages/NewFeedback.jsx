@@ -15,7 +15,7 @@ const NewFeedback = () => {
      const [feedbackDetailInputTouched,setFeedbackDetailInputTouched] = useState(false)
     const [feedbackDetailValue,setFeedbackDetailValue]=useState("")
     const [category,setCategory]=useState("feature")
-    const {productRequests,setProductRequests,suggestions,setSuggestion}=useContext(AppContext)
+    const {productRequests,setProductRequests,suggestions,setSuggestion,setCurrentVisibleSuggestions}=useContext(AppContext)
      const navigate = useNavigate();
 
      const handleFeedbackTitleInputChange=(e) =>{
@@ -50,9 +50,10 @@ const NewFeedback = () => {
       }
       setProductRequests(prv =>[...prv,createdFeedack])
       setSuggestion(prv => [...prv,createdFeedack])
+     setCurrentVisibleSuggestions(prv => [...prv,createdFeedack])
       navigate('/');
 
-      
+       
     }
   
     

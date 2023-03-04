@@ -8,6 +8,11 @@ const Suggestions = () => {
 
   const { currentVisibleSuggestions,setCurrentVisibleSuggestions, setFilterSuggestionCategory,userSortByChoice,setSuggestionNumber, filterSuggestionCategory , suggestions} = useContext(AppContext)
 
+
+ 
+
+  console.log( "currentVisibleSuggestion", currentVisibleSuggestions)
+
 useEffect(()=>{
   setFilterSuggestionCategory('All')
 },[])
