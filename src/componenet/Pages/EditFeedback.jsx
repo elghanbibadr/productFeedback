@@ -13,7 +13,6 @@ import { AppContext } from '../store/AppContext'
 const EditFeedback = () => {
     const { setCurrentVisibleSuggestions, productRequests, setProductRequests, currentSuggestionId, suggestions, setInProgressFeatures, setplannedFeatures, setLiveFeatures, setSuggestion } = useContext(AppContext)
     const currentSuggestion = productRequests.find(item => item.id == currentSuggestionId)
-    console.log(currentSuggestion)
     const { id, title, description, upvotes, comments, status, category: currentCategory } = currentSuggestion
     const [feedbackTitle, setFeedbackTitle] = useState(title)
     const [feedbackTitltInputTouched, setFeedbackTitleInputTouched] = useState(false)
