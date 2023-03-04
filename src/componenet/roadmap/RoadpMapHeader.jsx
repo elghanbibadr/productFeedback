@@ -5,7 +5,6 @@ import { useContext } from 'react'
 import { AppContext } from '../store/AppContext'
 const RoadpMapHeader = () => {
   const { liveFeatures} =useContext(AppContext)
-  console.log(liveFeatures)
   return (
     <div className='flex-row-between p-4 bg-greyDarker md:rounded-md md:px-8 md:py-6'>
         <div className='flex flex-col'>
