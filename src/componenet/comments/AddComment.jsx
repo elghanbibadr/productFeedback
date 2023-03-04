@@ -25,7 +25,7 @@ const defaultUser={
     if (commentContent) {
       // const filtered=suggestions.filter(item => item.id != currentSuggestionId);
       // console.log(filtered)
-      const updatedArray = currentVisibleSuggestions.map((item) => {
+      const updatedArray = productRequests.map((item) => {
         if (item.id == currentSuggestionId) {         
            const newComment={
              content:commentContent,
@@ -37,7 +37,7 @@ const defaultUser={
         }
         return item;
       });
-        setCurrentVisibleSuggestions(updatedArray);
+        setProductRequests(updatedArray);
         
       }
       setCommentContent('')

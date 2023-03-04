@@ -10,6 +10,7 @@ const SuggestionCard = (props) => {
   const {setCurrentSuggestionId}=useContext(AppContext);
    const handleSuggestionCardSlected=(target)=>{
      setCurrentSuggestionId(target.id)
+     console.log(target)
    }
 
   
