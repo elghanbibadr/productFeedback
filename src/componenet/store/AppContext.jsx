@@ -18,6 +18,7 @@ export const AppContextProvider = ({ children }) => {
 
    
 console.log( "liveFeatures",liveFeatures)
+console.log( "productRequests",productRequests)
   const value = {
     productRequests,
     setProductRequests,

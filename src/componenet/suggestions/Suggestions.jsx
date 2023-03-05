@@ -11,7 +11,6 @@ const Suggestions = () => {
 
  
 
-  console.log( "currentVisibleSuggestion", currentVisibleSuggestions)
 
 useEffect(()=>{
   setFilterSuggestionCategory('All')
