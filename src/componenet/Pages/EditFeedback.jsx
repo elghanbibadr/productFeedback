@@ -11,7 +11,7 @@ import arrowLeft from "../../images/shared/icon-arrow-left.svg";
 import { AppContext } from '../store/AppContext'
 
 const EditFeedback = () => {
-    const { setCurrentVisibleSuggestions,plannedFeatures,liveFeatures, productRequests, setProductRequests, currentSuggestionId, suggestions, setInProgressFeatures, setplannedFeatures, setLiveFeatures, setSuggestion } = useContext(AppContext)
+    const { setCurrentVisibleSuggestions,plannedFeatures,liveFeatures, inProgressFeatures,productRequests, setProductRequests, currentSuggestionId, suggestions, setInProgressFeatures, setplannedFeatures, setLiveFeatures, setSuggestion } = useContext(AppContext)
     const currentSuggestion = productRequests.find(item => item.id == currentSuggestionId)
     const { id, title, description, upvotes, comments, status, category: currentCategory } = currentSuggestion
     const [feedbackTitle, setFeedbackTitle] = useState(title)
@@ -77,12 +77,14 @@ const EditFeedback = () => {
             if (!plannedFeatures.some(item=>item.id==id)){
                 setplannedFeatures(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
             }
-
         }
+        
         if (feedbackStatus === "in-progress") {
+            if (!inProgressFeatures.some(item=>item.id==id)){
             setInProgressFeatures(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
-
+            }
         }
+
         if (feedbackStatus === "live") {
             if (!liveFeatures.some(item=>item.id==id)){
             setLiveFeatures(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
