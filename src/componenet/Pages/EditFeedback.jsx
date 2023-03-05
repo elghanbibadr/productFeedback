@@ -64,6 +64,7 @@ const EditFeedback = () => {
         setProductRequests(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
         setProductRequests(prv => prv.sort((a, b) => a.id - b.id))
         setSuggestion(prv => prv.filter(item => item.id !== id))
+        setplannedFeatures(productRequests.filter(element => element.status == "planned"))
         setCurrentVisibleSuggestions(suggestions.filter(item => item.id !== id))
         if (feedbackStatus === "suggestion") {
             setSuggestion(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
@@ -78,7 +79,7 @@ const EditFeedback = () => {
                 setplannedFeatures(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
             }
         }
-        
+
         if (feedbackStatus === "in-progress") {
             if (!inProgressFeatures.some(item=>item.id==id)){
             setInProgressFeatures(prv => [...prv, { id: id, title: feedbackTitle, category: category.toLowerCase(), upvotes: upvotes, status: feedbackStatus, description: feedbackDetailValue, comments }])
